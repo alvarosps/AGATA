@@ -48,6 +48,20 @@ class AIMLquestions(AIMLanswers):
             
             srai = SubElement(template, "srai")
             srai.text = self.question
+        if self._structure["extra"] != "":
+            related_keywords = self._structure["extra"].split(";")
+            for i in range(len(related_keywords)):
+                if related_keywords[i] != "":
+                    category = SubElement(self.aiml, "category")
+                
+                    pattern = SubElement(category, "pattern")
+                    pattern.text = related_keywords[i]
+                    
+                    template = SubElement(category, "template")
+                    
+                    srai = SubElement(template, "srai")
+                    srai.text = self.question
+                
     
     def replace_keywords(self, keyword, firstKeyword = False):
         new_pre_defined_phrases = list()

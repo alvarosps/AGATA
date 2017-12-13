@@ -6,7 +6,7 @@
 	<head>
 		<meta>
 	</head>
-	<form action="{% url 'select_text' %}" method="post">
+	<form action="{% url 'select_text' %}" method="post"  enctype="multipart/form-data">
 	    {% csrf_token %}
 	    {{ form|bootstrap }}
 	    <small id="required" class="form-text text-muted">* Campo Obrigatorio.</small>

@@ -3,7 +3,7 @@
 {% block content %}
     
 	<div class="container">
-		<button id='select-all'>Select All</button>
+		<button id='selectall'>Select/Unselect All</button>
 		<form action="{% url 'edit_text' %}" method="post">
 			{% csrf_token %}
 
@@ -25,6 +25,13 @@
 		</form>
 	
 	</div>
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$("#selectall").click(function() {
+		    $("input[type='checkbox']").each(function() {
+		        this.checked = !this.checked;
+		    });
+		});
+	</script>
 
 {% endblock %}

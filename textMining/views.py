@@ -2,12 +2,15 @@ from django.shortcuts import render
 from django.http import HttpResponse, Http404
 from django.shortcuts import redirect
 from django.conf import settings
+from django.core.files.storage import FileSystemStorage
+
 from xml.etree.ElementTree import tostring
 from xml.etree import ElementTree
 from bs4 import BeautifulSoup
 from xml.dom import minidom
 from textMining.forms import FormKeywords
 from textMining.TextMining import TextMining
+
 
 import os
 import json
@@ -19,6 +22,12 @@ def index(request):
     return render(request, 'textMining/index.html', {'form': form})
 
 def select_text(request):
+    
+    book_file = request.FILES['book']
+    fs = FileSystemStorage()
+    file_name = fs.save(book_file.name, book_file)
+    uploaded_file_url = fs.url(file_name)
+    print(uploaded_file_url)
     
     keywords = [
         request.POST['keyword_1'],
@@ -40,7 +49,9 @@ def select_text(request):
 
     file_name = "LivroMA4_P1_formatado(1).txt"
     
-    file_path = get_file_path(file_name, 'text')
+    #file_path = get_file_path(file_name, 'text')
+    
+    file_path = get_file_path(uploaded_file_url, 'upload')
     
     text_mining = TextMining(file_path, keywords)
     text_mining.get_keywords_sentences()
@@ -84,9 +95,12 @@ def generate_aiml(request):
     
     typeOfAIML = request.POST["typeOfAIML"]
     
+    relatedKeywords = request.POST["relatedKeywords"]
+    
     final_info = {
         "keywords" : keywords,  
-        "sentences" : keyword_sentences
+        "sentences" : keyword_sentences,
+        "extra" : relatedKeywords
     }
     
     AIMLGenerator = AIMLquestions(final_info, typeOfAIML)
@@ -116,6 +130,9 @@ def get_file_path(file_name, typeOfFile):
         file_folder = "\\texts\\"
     elif typeOfFile == 'xml':
         file_folder = "\\aimls\\"
+    elif typeOfFile == 'upload':
+        file_name = file_name[7:]
+        return os.path.abspath(os.path.join(dir_path, os.pardir)) + '\\media\\' + file_name
     
     return ( dir_path + file_folder + file_name )
 

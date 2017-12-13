@@ -7,99 +7,119 @@ Powered by Fabricio Herpich < fabricio_herpich at hotmail.com >
 Project coordinator: Liane Margarida Rockenbach Tarouco < liane at penta.ufrgs.br >-->
  <category>
   <pattern>
-   educação
+   da tecnologia
   </pattern>
   <template>
    <random>
     <li>
-     Assim, conhecidas as condições do contexto, tanto as de infraestrutura, quanto as de práticas pedagógicas, deve-se seguir uma fase de análise de estratégias de uso das mídias na educação.
+     &lt;p&gt;Estes dados constituem um forte indicativo de que a geração estudantil está bastante familiarizada com o uso da tecnologia de informação e comunicação, pois o celular é atualmente usado para atividades que transcendem a mera comunicação por voz.&lt;/p&gt;
     </li>
     <li>
-     A partir deste delineamento do contexto, será possível discutir a pedagogia e a tecnologia subjacentes ao uso de mídias na educação.
+     &lt;p&gt;A construção do conteúdo educacional digital, usando mídias diversificadas, deve ponderar questões relativas a teorias de aprendizagem e usar também o conhecimento de outras áreas como ergonomia, engenharia de sistemas e considerar ainda potencialidades e limitações da tecnologia envolvida.&lt;/p&gt;
     </li>
     <li>
-     Mas se no dia a dia o aluno está cada vez mais em contato com esses dispositivos e utiliza a Internet para realizar trabalho escolar (mais de 80% das atividades realizadas incluía esta opção) e as novas formas de comunicação, a escola ainda não integra em seu currículo esses elementos tal como seria esperado (COSTA, 2013), e os motivos são tanto derivados de causas econômicas como de lacunas na formação dos professores para o uso de mídias na educação.
+     &lt;p&gt;Apesar de acreditarmos no potencial da tecnologia como ferramenta de pensamento, reconhecemos que existem limitações e restrições que a própria tecnologia pode impor em função de suas próprias características, funcionalidades e práticas culturais que emergem do grupo social e das intencionalidades impostas pelos agentes produtores de tecnologia e pelos agentes que se apropriam delas.&lt;/p&gt;
     </li>
    </random>
   </template>
  </category>
  <category>
   <pattern>
-   O QUE FAZ educação
+   O QUE FAZ da tecnologia
   </pattern>
   <template>
    <srai>
-    educação
+    da tecnologia
    </srai>
   </template>
  </category>
  <category>
   <pattern>
-   O QUE O educação FAZ
+   O QUE O da tecnologia FAZ
   </pattern>
   <template>
    <srai>
-    educação
+    da tecnologia
    </srai>
   </template>
  </category>
  <category>
   <pattern>
-   * educação
+   * da tecnologia
   </pattern>
   <template>
    <srai>
-    educação
+    da tecnologia
    </srai>
   </template>
  </category>
  <category>
   <pattern>
-   educação *
+   da tecnologia *
   </pattern>
   <template>
    <srai>
-    educação
+    da tecnologia
    </srai>
   </template>
  </category>
  <category>
   <pattern>
-   * educação *
+   * da tecnologia *
   </pattern>
   <template>
    <srai>
-    educação
+    da tecnologia
    </srai>
   </template>
  </category>
  <category>
   <pattern>
-   O QUE SE PODE FAZER COM educação
+   O QUE SE PODE FAZER COM da tecnologia
   </pattern>
   <template>
    <srai>
-    educação
+    da tecnologia
    </srai>
   </template>
  </category>
  <category>
   <pattern>
-   O QUE É educação
+   O QUE É da tecnologia
   </pattern>
   <template>
    <srai>
-    educação
+    da tecnologia
    </srai>
   </template>
  </category>
  <category>
   <pattern>
-   DEFINA educação
+   DEFINA da tecnologia
   </pattern>
   <template>
    <srai>
-    educação
+    da tecnologia
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   educação
+  </pattern>
+  <template>
+   <srai>
+    da tecnologia
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   no meio educacional
+  </pattern>
+  <template>
+   <srai>
+    da tecnologia
    </srai>
   </template>
  </category>

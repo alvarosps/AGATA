@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html>
+
+	<head>
+	
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta name="description" content="">
+	    <meta name="author" content="">
+	
+	    <title>Text Mining</title>
+	
+	    <!-- Bootstrap core CSS -->
+	    <link href='{% static "bootstrap/css/bootstrap.min.css" %}' rel="stylesheet">
+	
+	    <!-- Custom styles for this template -->
+	    <link href='{% static "css/simple-sidebar.css" %}' rel="stylesheet">
+		
+		<style>
+		
+			#page_body{
+				margin-left: 5%;
+				margin-right: 5%;
+			}
+		
+		</style>
+	
+	</head>
+
+    <body>
+        <div id="wrapper">
+
+	        <!-- Sidebar -->
+	        <div id="sidebar-wrapper">
+	            <ul class="sidebar-nav">
+	                <li class="sidebar-brand">
+	                    <a href="">
+	                       	test
+	                    </a>
+	                </li>
+	            </ul>
+	        </div>
+	
+	        <!-- Page Content -->
+	        <div id="page-content-wrapper">
+	            <div class="container-fluid">
+	            	<div id="header" class="container">
+	                	<span id="menu">
+	                		<a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">
+	                			Menu
+	                		</a>
+	                	</span>
+	                </div>
+				
+	                
+	            </div>
+	        </div>
+	        <!-- /#page-content-wrapper -->
+			
+			<!-- Page content above -->
+			<div id="page_body">
+				{% block content %}
+				{% endblock %}
+			</div>
+    	</div>
+    <!-- /#wrapper -->
+        
+        
+	    <!-- Bootstrap core JavaScript -->
+	    <script src='{% static "js/jquery/jquery-3.2.1.min.js" %}'></script>
+	    <script src='{% static "js/popper/popper.min.js" %}'></script>
+	    <script src='{% static "bootstrap/js/bootstrap.min.js" %}'></script>
+       	<script src='{% static "js/scripts.js" %}'></script>
+       	<!-- Menu Toggle Script -->
+	    <script>
+	    $("#menu-toggle").click(function(e) {
+	        e.preventDefault();
+	        $("#wrapper").toggleClass("toggled");
+	    });
+	    </script>
+    </body>
+
+</html>

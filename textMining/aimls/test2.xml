@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<aiml encoding="UTF-8" version="3.0">
+ <!--Copyright �2017 - FAST.aiml
+URL: http://avatar.cinted.ufrgs.br/fastaiml/
+Powered by Fabricio Herpich < fabricio_herpich at hotmail.com >
+           Alvaro S. P. Silva < alvaro123sps at gmail.com >
+Project coordinator: Liane Margarida Rockenbach Tarouco < liane at penta.ufrgs.br >-->
+ <category>
+  <pattern>
+   educação
+  </pattern>
+  <template>
+   <random>
+    <li>
+     &lt;p&gt;MÍDIAS NA EDUCAÇÃO: A PEDAGOGIA E A TECNOLOGIA SUBJACENTES.&lt;/p&gt;
+    </li>
+    <li>
+     &lt;p&gt;Uma análise da situação das mídias na educação precisa necessariamente considerar as condições facilitadoras no cenário atual no Brasil e no mundo na contemporaneidade.&lt;/p&gt;
+    </li>
+    <li>
+     &lt;p&gt;A partir deste delineamento do contexto, será possível discutir a pedagogia e a tecnologia subjacentes ao uso de mídias na educação.&lt;/p&gt;
+    </li>
+    <li>
+     &lt;p&gt;Mas se no dia a dia o aluno está cada vez mais em contato com esses dispositivos e utiliza a Internet para realizar trabalho escolar (mais de 80% das atividades realizadas incluía esta opção) e as novas formas de comunicação, a escola ainda não integra em seu currículo esses elementos tal como seria esperado (COSTA, 2013), e os motivos são tanto derivados de causas econômicas como de lacunas na formação dos professores para o uso de mídias na educação.&lt;/p&gt;
+    </li>
+    <li>
+     &lt;p&gt;Parte da concepção de que é impossível existir uma tecnologia “externa” que se introduz para dentro do sujeito ou dos grupos visando a provocar consequências na sociedade, muito pelo contrário “[.&lt;/p&gt;
+    </li>
+    <li>
+     &lt;p&gt;] a tecnologia encontra-se entrelaçada de maneira complexa nos sistemas e processos sociais” (WARSCHAUER, 2006 p.&lt;/p&gt;
+    </li>
+    <li>
+     &lt;p&gt;Especificamente no meio educacional, a audiodescrição pode ampliar as possibilidades de acesso à cultura e à informação, contribuindo para a inclusão social, cultural e escolar, uma vez que o recurso permite transpor mídias visuais em audiovisuais, permitindo que os alunos com deficiência visual se apropriem do universo imagético presente no currículo escolar (por exemplo, mapas, imagens e ilustrações de livros didáticos, gráficos, vídeos etc.&lt;/p&gt;
+    </li>
+   </random>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   FALE SOBRE O educação
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE FAZ educação
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE FAZ O educação
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE O educação FAZ
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   * educação
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   educação *
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   * educação *
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE SE PODE FAZER COM educação
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE SE PODE FAZER COM O educação
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE É educação
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE É O educação
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   DEFINA educação
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   FALE SOBRE tecnologia
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   FALE SOBRE O tecnologia
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   tecnologia
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE FAZ tecnologia
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE FAZ O tecnologia
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE O tecnologia FAZ
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   * tecnologia
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   tecnologia *
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   * tecnologia *
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE SE PODE FAZER COM tecnologia
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE SE PODE FAZER COM O tecnologia
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE É tecnologia
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE É O tecnologia
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   DEFINA tecnologia
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   FALE SOBRE no meio educacional
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   FALE SOBRE O no meio educacional
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   no meio educacional
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE FAZ no meio educacional
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE FAZ O no meio educacional
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE O no meio educacional FAZ
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   * no meio educacional
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   no meio educacional *
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   * no meio educacional *
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE SE PODE FAZER COM no meio educacional
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE SE PODE FAZER COM O no meio educacional
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE É no meio educacional
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE É O no meio educacional
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   DEFINA no meio educacional
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+</aiml>

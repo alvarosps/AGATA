@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+	<div class="container">
+		<button id='select-all'>Select All</button>
+		<form action="{% url 'edit_text' %}" method="post">
+			{% csrf_token %}
+
+			{% for info in sentences_info %}
+				<h3>Palavra-Chave: {{ info.keyword }}</h3>
+				<div class="form-check">
+					{% for sentence in info.sentences %}
+					    <label class="form-check-label">
+					        <input type="checkbox" class="form-check-input" name="{{ info.keyword_id }}" id="{{ sentence.sentence_id }}" value="{{ sentence.sentence_id }}">
+					        {{ sentence.sentence }}
+					    </label>
+					{% endfor %}
+				</div>
+				<hr>
+			{% endfor %}
+			
+			<input type="submit" class="btn btn-primary" value="Enviar" />
+
+		</form>
+	
+	</div>
+	
+
+{% endblock %}

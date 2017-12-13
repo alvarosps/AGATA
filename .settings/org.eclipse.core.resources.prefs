@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding//textMining/AIMLanswers.py=utf-8
+encoding//textMining/AIMLgenerator.py=utf-8
+encoding//textMining/AIMLquestions.py=utf-8
+encoding//textMining/TextMining.py=utf-8
+encoding//textMining/migrations/0001_initial.py=utf-8
+encoding//textMining/migrations/0002_delete_keywords.py=utf-8

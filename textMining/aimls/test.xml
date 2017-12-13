@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<aiml encoding="UTF-8" version="3.0">
+ <!--Copyright �2017 - FAST.aiml
+URL: http://avatar.cinted.ufrgs.br/fastaiml/
+Powered by Fabricio Herpich < fabricio_herpich at hotmail.com >
+           Alvaro S. P. Silva < alvaro123sps at gmail.com >
+Project coordinator: Liane Margarida Rockenbach Tarouco < liane at penta.ufrgs.br >-->
+ <category>
+  <pattern>
+   educação
+  </pattern>
+  <template>
+   <random>
+    <li>
+     Assim, conhecidas as condições do contexto, tanto as de infraestrutura, quanto as de práticas pedagógicas, deve-se seguir uma fase de análise de estratégias de uso das mídias na educação.
+    </li>
+    <li>
+     A partir deste delineamento do contexto, será possível discutir a pedagogia e a tecnologia subjacentes ao uso de mídias na educação.
+    </li>
+    <li>
+     Mas se no dia a dia o aluno está cada vez mais em contato com esses dispositivos e utiliza a Internet para realizar trabalho escolar (mais de 80% das atividades realizadas incluía esta opção) e as novas formas de comunicação, a escola ainda não integra em seu currículo esses elementos tal como seria esperado (COSTA, 2013), e os motivos são tanto derivados de causas econômicas como de lacunas na formação dos professores para o uso de mídias na educação.
+    </li>
+   </random>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE FAZ educação
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE O educação FAZ
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   * educação
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   educação *
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   * educação *
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE SE PODE FAZER COM educação
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   O QUE É educação
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+ <category>
+  <pattern>
+   DEFINA educação
+  </pattern>
+  <template>
+   <srai>
+    educação
+   </srai>
+  </template>
+ </category>
+</aiml>

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load bootstrap %}
+
+{% block content %}
+	<head>
+		<meta>
+	</head>
+	<form action="{% url 'select_text' %}" method="post">
+	    {% csrf_token %}
+	    {{ form|bootstrap }}
+	    <small id="required" class="form-text text-muted">* Campo Obrigatorio.</small>
+	    <br/>
+	    <input type="submit" class="btn btn-primary" value="Enviar" />
+	</form>
+
+{% endblock %}

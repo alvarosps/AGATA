@@ -11,10 +11,11 @@ from xml.dom import minidom
 from textMining.forms import FormKeywords
 from textMining.TextMining import TextMining
 
-
+import time
 import os
 import json
 from textMining.AIMLquestions import AIMLquestions
+
 
 def index(request):
     form = FormKeywords()
@@ -108,33 +109,43 @@ def generate_aiml(request):
     aiml = AIMLGenerator.create_aiml()
     aimlTree = AIMLGenerator.save_aiml(aiml)
     
-    aimlTree.write(get_file_path("test.xml", "xml"), encoding="utf-8", xml_declaration=True)
+    download_file_name = 'aiml-' + time.strftime("%d-%m-%Y-%H-%M-%S") + '.xml'
+    download_file_path = get_file_path(download_file_name, "xml")
+    aimlTree.write(download_file_path, encoding="utf-8", xml_declaration=True)
     
-    with open(get_file_path("test.xml", "xml"), 'r', encoding='utf-8') as xml:
+    with open(download_file_path, 'r', encoding='utf-8') as xml:
         aiml_str = xml.read()
 
     #needs to pretty print
-    bs = BeautifulSoup(open(get_file_path("test.xml", "xml"), 'r', encoding='utf-8'), 'xml')
+    bs = BeautifulSoup(open(download_file_path, 'r', encoding='utf-8'), 'xml')
     aiml_str = bs.prettify(encoding='utf-8')
     
-    with open(get_file_path("test.xml", "xml"), 'w', encoding='utf-8') as f:
+    with open(download_file_path, 'w', encoding='utf-8') as f:
         f.write(aiml_str.decode('utf-8'))
+        
+    with open(download_file_path, 'rb') as fh:
+        response = HttpResponse(fh.read(), content_type="application/xml")
+        if request.POST['aimlOption'] == 'save':
+            response['Content-Disposition'] = 'attachment; filename=' + os.path.basename(download_file_path)
+        if request.POST['aimlOption'] == 'show':
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(download_file_path)
     
-    return render(request, 'textMining/generate_aiml.html', {'aiml_str' : aiml_str.decode('utf-8')})
-
-   
+    #return render(request, 'textMining/generate_aiml.html', {'aiml_str' : aiml_str.decode('utf-8'), 'download_file_path' : download_file_path})
+    return response
 
 def get_file_path(file_name, typeOfFile):
     dir_path = os.path.dirname(os.path.realpath(__file__))
     if typeOfFile == 'text':
         file_folder = "\\texts\\"
+        return ( dir_path + file_folder + file_name )
     elif typeOfFile == 'xml':
         file_folder = "\\aimls\\"
+        return os.path.abspath(os.path.join(dir_path, os.pardir)) + '\\media\\' + file_name
     elif typeOfFile == 'upload':
-        file_name = file_name[7:]
+        file_name = file_name[len('/media/'):]
         return os.path.abspath(os.path.join(dir_path, os.pardir)) + '\\media\\' + file_name
     
-    return ( dir_path + file_folder + file_name )
+    
 
 def generate_sentences_info(sentences):
     keywords = list()

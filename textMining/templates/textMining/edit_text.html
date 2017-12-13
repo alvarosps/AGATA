@@ -43,11 +43,25 @@
 			    <input type="text" class="form-control" id="relatedKeywords" name="relatedKeywords" placeholder="Enter the related keywords, separate them with ;">
 			</div>
 			
-			<input type="hidden" name="typeOfAIML" value="pre_defined">
-			<input type="submit" class="btn btn-primary" value="Gerar AIML" />
+			<h4>Selecione:</h4>
 			
+			<div class="form-check">
+			  <label class="form-check-label">
+			    <input class="form-check-input" type="radio" name="aimlOption" id="show" value="show">
+			    	Visualizar AIML
+			  </label>
+			</div>
+			<div class="form-check">
+			  <label class="form-check-label">
+			    <input class="form-check-input" type="radio" name="aimlOption" id="save" value="save" checked>
+			    	Salvar AIML
+			  </label>
+			</div>
+			
+			<input type="hidden" name="typeOfAIML" value="pre_defined" />
+			<input type="submit" class="btn btn-primary" value="Download AIML" />
 		</form>
-	
+		
 	</div>
 
 {% endblock %}

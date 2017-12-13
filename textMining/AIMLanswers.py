@@ -32,8 +32,9 @@ class AIMLanswers(AIMLgenerator):
             random = SubElement(template, "random")
             
             for i in range(len(self.answers)):
-                li = SubElement(random, "li")
-                li.text = self.answers[i]
+                if self.answers[i] != "":
+                    li = SubElement(random, "li")
+                    li.text = self.answers[i]
         elif len(self.answers) == 1:
             template.text = self.answers[0]
         

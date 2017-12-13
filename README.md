@@ -2,6 +2,10 @@
 Automatic Generator of AIML Categories
 
 <div>
+	<h3>*IMPORTANTE*</h3>
+	<p>Caso já tenha instalado, sempre fazer um <strong><em>git pull origin master</em></strong> antes de utilizar, para garantir que está usando a versão mais atualizada do sistema. Para isso, deve estar na pasta do projeto(comando <em>cd</em>)</p>
+
+<div>
 	<h3>Como fazer a instalação</h3>
 	<ul>
 		<li>Necessário Python 3.6, instalador: https://www.python.org/ftp/python/3.6.3/python-3.6.3.exe</li>
@@ -52,4 +56,4 @@ Automatic Generator of AIML Categories
 				<li>Agora, abrir o seu navegador, e entrar no link: <a href="localhost:8000">localhost:8000</a></li> 
 			</ol>
 	</ol>
-	
+</div>

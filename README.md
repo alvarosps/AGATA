@@ -1,5 +1,5 @@
-# textMining
-Automatic Generator of AIML Categories
+# AGATA
+Automatic Generation of AIML from Text Acquisition
 
 <div>
 	<h3>*IMPORTANTE*</h3>

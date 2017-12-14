@@ -98,6 +98,8 @@ def generate_aiml(request):
     
     relatedKeywords = request.POST["relatedKeywords"]
     
+    user_file_name = request.POST["fileName"]
+    
     final_info = {
         "keywords" : keywords,  
         "sentences" : keyword_sentences,
@@ -109,7 +111,14 @@ def generate_aiml(request):
     aiml = AIMLGenerator.create_aiml()
     aimlTree = AIMLGenerator.save_aiml(aiml)
     
-    download_file_name = 'aiml-' + time.strftime("%d-%m-%Y-%H-%M-%S") + '.xml'
+    if user_file_name != "":
+        if user_file_name.endswith(".xml"):
+            download_file_name = user_file_name
+        else:
+            download_file_name = user_file_name + ".xml"
+    else:
+        download_file_name = 'aiml-' + time.strftime("%d-%m-%Y-%H-%M-%S") + '.xml'
+    
     download_file_path = get_file_path(download_file_name, "xml")
     aimlTree.write(download_file_path, encoding="utf-8", xml_declaration=True)
     

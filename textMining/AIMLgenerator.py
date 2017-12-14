@@ -18,7 +18,7 @@ class AIMLgenerator(object):
         
         comment = Comment(     "Copyright �2017 - FAST.aiml" + "\n" +
                         "URL: http://avatar.cinted.ufrgs.br/fastaiml/" + "\n" +
-                        "Powered by Fabricio Herpich < fabricio_herpich at hotmail.com >" + "\n" +
+                        "Powered by Aliane Loureiro Krassmann < alkrassmann@gmail.com >" + "\n" +
                         "           Alvaro S. P. Silva < alvaro123sps at gmail.com >" + "\n" +
                         "Project coordinator: Liane Margarida Rockenbach Tarouco < liane at penta.ufrgs.br >"
         )

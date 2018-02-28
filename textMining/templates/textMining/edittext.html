@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+	<script>
+	        tinymce.init({
+	        	//forced_root_block : false,
+	            selector: "textarea",
+	            plugins: [
+	            	'advlist autolink lists link image charmap print preview anchor textcolor',
+	                'searchreplace visualblocks code fullscreen',
+	                'insertdatetime media table contextmenu paste code help'
+	            ],
+	            toolbar: 'insert | undo redo |  styleselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+	            content_css: [
+	              '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+	              '//www.tinymce.com/css/codepen.min.css'
+	            ],
+	            apply_source_formatting:true,
+	            entity_encoding:"named",
+	            entities:'169,copy,8482,trade,ndash,8212,mdash,8216,lsquo,8217,rsquo,8220,ldquo,8221,rdquo,8364,euro'
+	         });
+	</script>
+	<div class="container">
+	
+		<form action="{% url 'generateaiml' %}" method="post">
+			{% csrf_token %}
+			
+			{% for info in final_sentences_info %}
+				<h3>Keyword: {{ info.keyword }}</h3>
+				<div class="form-group">
+					{% for sentence in info.sentences %}
+					    <label class="form-check-label">
+					        <textarea class="form-control" id="{{ sentence.sentence_id }}" name="{{ sentence.sentence_id }}" cols="200" height="100">{{ sentence.sentence }}</textarea>
+					    </label>
+					{% endfor %}
+				</div>
+				<hr>
+			{% endfor %}
+			
+			<div class="form-group">
+			    <label for="relatedKeywords">Palavras-Chave Relacionadas</label>
+			    <input type="text" class="form-control" id="relatedKeywords" name="relatedKeywords" placeholder="Enter the related keywords, separate them with ;">
+			</div>
+			
+			<div class="form-group">
+			    <label for="fileName">Nome do Arquivo</label>
+			    <input type="text" class="form-control" id="fileName" name="fileName" placeholder="Entre com o nome do arquivo, caso seja nulo, vai ser aiml-DD-MM-YYYY-hh-mm-ss.xml, nao e necessario o .xml">
+			</div>
+			
+			<h4>Selecione:</h4>
+			
+			<div class="form-check">
+			  <label class="form-check-label">
+			    <input class="form-check-input" type="radio" name="aimlOption" id="show" value="show">
+			    	Visualizar AIML
+			  </label>
+			</div>
+			<div class="form-check">
+			  <label class="form-check-label">
+			    <input class="form-check-input" type="radio" name="aimlOption" id="save" value="save" checked>
+			    	Salvar AIML
+			  </label>
+			</div>
+			
+			<input type="hidden" name="typeOfAIML" value="pre_defined" />
+			<input type="submit" class="btn btn-primary" value="Download AIML" />
+		</form>
+		
+	</div>
+
+{% endblock %}

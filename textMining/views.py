@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.shortcuts import render
 from django.http import HttpResponse, Http404
 from django.shortcuts import redirect
@@ -63,7 +65,7 @@ def select_text(request):
     
     request.session["sentences_info"] = sentences_info
     
-    return render(request, 'textMining/select_text.html', {'sentences_info': sentences_info})
+    return render(request, 'textMining/selecttext.html', {'sentences_info': sentences_info})
 
 def edit_text(request):
     
@@ -82,7 +84,7 @@ def edit_text(request):
     
     request.session["final_sentences_info"] = final_sentences_info
     
-    return render(request, 'textMining/edit_text.html', {'final_sentences_info' : final_sentences_info})
+    return render(request, 'textMining/edittext.html', {'final_sentences_info' : final_sentences_info})
 
 def generate_aiml(request):
     final_sentences_info = request.session["final_sentences_info"]
@@ -139,7 +141,7 @@ def generate_aiml(request):
         if request.POST['aimlOption'] == 'show':
             response['Content-Disposition'] = 'inline; filename=' + os.path.basename(download_file_path)
     
-    #return render(request, 'textMining/generate_aiml.html', {'aiml_str' : aiml_str.decode('utf-8'), 'download_file_path' : download_file_path})
+    #return render(request, 'textMining/generateaiml.html', {'aiml_str' : aiml_str.decode('utf-8'), 'download_file_path' : download_file_path})
     return response
 
 def get_file_path(file_name, typeOfFile):
@@ -149,11 +151,12 @@ def get_file_path(file_name, typeOfFile):
         return ( dir_path + file_folder + file_name )
     elif typeOfFile == 'xml':
         file_folder = "\\aimls\\"
-        return os.path.abspath(os.path.join(dir_path, os.pardir)) + '\\media\\' + file_name
+        #return os.path.abspath(os.path.join(dir_path, os.pardir)) + '\\media\\' + file_name #localserver(windows)
+        return '/home/metis/public_html/media/' + file_name #server
     elif typeOfFile == 'upload':
         file_name = file_name[len('/media/'):]
-        return os.path.abspath(os.path.join(dir_path, os.pardir)) + '\\media\\' + file_name
-    
+        #return os.path.abspath(os.path.join(dir_path, os.pardir)) + '\\media\\' + file_name #localserver(windows)
+        return '/home/metis/public_html/media/' + file_name #server
     
 
 def generate_sentences_info(sentences):

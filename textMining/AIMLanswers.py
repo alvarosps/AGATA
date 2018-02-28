@@ -1,4 +1,5 @@
-#coding: utf-8
+# -*- coding: utf-8 -*-
+
 from textMining.AIMLgenerator import AIMLgenerator
 from xml.etree.ElementTree import Element, SubElement, Comment, tostring
 

@@ -25,7 +25,7 @@ SECRET_KEY = 's0vh!x&$q^b-dzg=975esz26e+ip#wh#h8lz6aqz8#0+k-n+1&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['agata.pgie.ufrgs.br']
 
 
 # Application definition
@@ -124,12 +124,12 @@ STATIC_PATH = os.path.join(BASE_DIR,'static')
 
 STATIC_URL = '/static/' # You may find this is already defined as such.
 
-STATIC_ROOT = ''
+STATIC_ROOT = '/home/metis/public_html/static'
 
 STATICFILES_DIRS = (
     STATIC_PATH,
 )
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = '/home/metis/public_html/media'
 
 MEDIA_URL = '/media/'

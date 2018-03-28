@@ -27,7 +27,7 @@ class TextMining(object):
             self._keywords[i] = self._keywords[i].lower()
                 
     def separete_file_sentences(self):
-        with open(self._file_path, "r", encoding='utf-8') as text_file:
+        with open(self._file_path, "r") as text_file:
             file_text = text_file.read()
             sentences = nltk.tokenize.sent_tokenize(file_text)
                     

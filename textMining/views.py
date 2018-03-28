@@ -17,7 +17,7 @@ import time
 import os
 import json
 from textMining.AIMLquestions import AIMLquestions
-
+import re
 
 def index(request):
     form = FormKeywords()
@@ -25,7 +25,6 @@ def index(request):
     return render(request, 'textMining/index.html', {'form': form})
 
 def select_text(request):
-    
     book_file = request.FILES['book']
     fs = FileSystemStorage()
     file_name = fs.save(book_file.name, book_file)
@@ -131,8 +130,12 @@ def generate_aiml(request):
     bs = BeautifulSoup(open(download_file_path, 'r', encoding='utf-8'), 'xml')
     aiml_str = bs.prettify(encoding='utf-8')
     
+    aiml = aiml_str.decode('utf-8')
+    text_re = re.compile('>\n\s+([^<>\s].*?)\n\s+</', re.DOTALL)
+    pretty_aiml = text_re.sub('>\g<1></', aiml)
+    
     with open(download_file_path, 'w', encoding='utf-8') as f:
-        f.write(aiml_str.decode('utf-8'))
+        f.write(pretty_aiml)
         
     with open(download_file_path, 'rb') as fh:
         response = HttpResponse(fh.read(), content_type="application/xml")
@@ -151,12 +154,12 @@ def get_file_path(file_name, typeOfFile):
         return ( dir_path + file_folder + file_name )
     elif typeOfFile == 'xml':
         file_folder = "\\aimls\\"
-        #return os.path.abspath(os.path.join(dir_path, os.pardir)) + '\\media\\' + file_name #localserver(windows)
-        return '/home/metis/public_html/media/' + file_name #server
+        return os.path.abspath(os.path.join(dir_path, os.pardir)) + '\\media\\' + file_name #localserver(windows)
+        #return '/home/metis/public_html/media/' + file_name #server
     elif typeOfFile == 'upload':
         file_name = file_name[len('/media/'):]
-        #return os.path.abspath(os.path.join(dir_path, os.pardir)) + '\\media\\' + file_name #localserver(windows)
-        return '/home/metis/public_html/media/' + file_name #server
+        return os.path.abspath(os.path.join(dir_path, os.pardir)) + '\\media\\' + file_name #localserver(windows)
+        #return '/home/metis/public_html/media/' + file_name #server
     
 
 def generate_sentences_info(sentences):

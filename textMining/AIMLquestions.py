@@ -8,9 +8,7 @@ class AIMLquestions(AIMLanswers):
     #use AIMLanswers. The pre-defined category fits here
     
     #removed_phrases = ["FALE SOBRE O #", "O QUE SE PODE FAZER COM O #", "O QUE É O #", "O QUE FAZ O #"]
-    pre_defined_phrases = ["FALE SOBRE #",  "#", "O QUE FAZ #", "O QUE O # FAZ", 
-                           "* #", "# *", "* # *", "O QUE SE PODE FAZER COM #",
-                           "O QUE É #", "DEFINA #"]
+    pre_defined_phrases = ["#", "* #", "* # *", "# *", "FALE SOBRE #", "DEFINA #", "O QUE É #", "PARA QUE SERVE #", "O QUE * #", "COMO * #"]
     
     def __init__(self, structure, typeOfAIML):
         '''

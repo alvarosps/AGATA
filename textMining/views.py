@@ -154,11 +154,13 @@ def get_file_path(file_name, typeOfFile):
         return ( dir_path + file_folder + file_name )
     elif typeOfFile == 'xml':
         file_folder = "\\aimls\\"
-        return os.path.abspath(os.path.join(dir_path, os.pardir)) + '\\media\\' + file_name #localserver(windows)
+        #return os.path.abspath(os.path.join(dir_path, os.pardir)) + '\\media\\' + file_name #localserver(windows)
+        return os.path.abspath(os.path.join(dir_path, os.pardir)) + '/media/' + file_name #server(linux)
         #return '/home/metis/public_html/media/' + file_name #server
     elif typeOfFile == 'upload':
         file_name = file_name[len('/media/'):]
-        return os.path.abspath(os.path.join(dir_path, os.pardir)) + '\\media\\' + file_name #localserver(windows)
+        #return os.path.abspath(os.path.join(dir_path, os.pardir)) + '\\media\\' + file_name #localserver(windows)
+        return os.path.abspath(os.path.join(dir_path, os.pardir)) + '/media/' + file_name #server(linux)
         #return '/home/metis/public_html/media/' + file_name #server
     
 

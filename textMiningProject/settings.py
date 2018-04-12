@@ -25,7 +25,9 @@ SECRET_KEY = 's0vh!x&$q^b-dzg=975esz26e+ip#wh#h8lz6aqz8#0+k-n+1&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['agata.pgie.ufrgs.br', 'localhost']
+#ALLOWED_HOSTS = ['agata.pgie.ufrgs.br', 'localhost']
+ALLOWED_HOSTS = ['.agata.pgie.ufrgs.br', 'localhost']
+
 
 
 # Application definition
@@ -120,16 +122,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_PATH = os.path.join(BASE_DIR,'static')
+#STATIC_PATH = os.path.join(BASE_DIR,'static')
 
 STATIC_URL = '/static/' # You may find this is already defined as such.
 
 #STATIC_ROOT = '/home/metis/public_html/static'
-STATIC_ROOT = ''
+#STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-STATICFILES_DIRS = (
-    STATIC_PATH,
-)
+#STATICFILES_DIRS = (
+#    STATIC_PATH,
+#)
 
 #MEDIA_ROOT = '/home/metis/public_html/media'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

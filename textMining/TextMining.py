@@ -5,6 +5,7 @@ import json
 import nltk
 import re
 import codecs
+import cchardet as chardet
 
 class TextMining(object):
     def __init__(self, file_path, keywords):
@@ -29,7 +30,13 @@ class TextMining(object):
             self._keywords[i] = self._keywords[i].lower()
                 
     def separete_file_sentences(self):
-        with codecs.open(self._file_path, "r", encoding='utf-8', errors='ignore') as text_file:
+
+        with open(self._file_path, "rb") as f:
+            msg = f.read()
+            result = chardet.detect(msg)
+            #print(result)
+        
+        with codecs.open(self._file_path, "r", encoding=result["encoding"]) as text_file:
             file_text = text_file.read()
             sentences = nltk.tokenize.sent_tokenize(file_text)
                     

@@ -1,0 +1,6 @@
+db.sqlite3
+media/*
+textMining/__pycache__/*
+textMiningProject/__pycache__/*
+*~
+*/*~

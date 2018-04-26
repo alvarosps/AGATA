@@ -20,9 +20,12 @@ from textMining.AIMLquestions import AIMLquestions
 import re
 
 def index(request):
+    return render(request, 'textMining/index.html')
+
+def aiml(request):
     form = FormKeywords()
     
-    return render(request, 'textMining/index.html', {'form': form})
+    return render(request, 'textMining/aiml.html', {'form': form})
 
 def select_text(request):
     book_file = request.FILES['book']
@@ -284,5 +287,5 @@ def get_keywords(final_sentences_info):
     
     return keywords
 
-
-
+def about(request):  
+    return render(request, 'textMining/sobre.html')

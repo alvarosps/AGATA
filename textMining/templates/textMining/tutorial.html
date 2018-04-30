@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block header %}
+
+<header class="w3-container w3-green w3-center" style="padding:100px 16px">
+  <h1 class="w3-margin w3-jumbo">TUTORIAL</h1>
+</header>
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    
+    <div class="w3-twothird">
+      <h1>Sistema AGATA</h1>
+      <h5 class="w3-padding-32">O sistema AGATA utiliza as tecnologias Python, Django, PHP, e funciona da seguinte forma:</h5>
+
+      <p class="w3-text-dark-grey">
+	<ol>
+	  <li>O usuário seleciona um arquivo no seu computador e faz o upload, enviando-o para o sistema. Este arquivo pode ser um livro, uma apostila, um artigo, uma revista, etc., desde que possua frases que explicam um conceito e esteja no formato txt. Neste momento, sugere-se que sejam retiradas as figuras, tabelas, quadros e gráficos do arquivo, realizando uma “limpeza” no mesmo, para que permaneça somente o conteúdo textual.</li>
+	  <li>O usuário insere de uma a três palavras-chave para busca e clica em enviar.</li>
+	  <li>Em uma nova tela, as frases que contém cada uma dessas palavras-chaves são exibidas, ordenadas por termo buscado e ordem em que aparecem no corpus.</li>
+	  <li>O usuário seleciona as frases que deseja utilizar, clicando em caixas de seleção. Neste momento, o especialista de domínio, a pessoa que possui o conhecimento acerca do corpus em questão, utiliza sua expertise para indicar as frases mais significativas, e que sejam condizentes com uma “resposta” ao usuário em uma conversa com o chatterbot.</li>
+	  <li>Em uma nova tela, as frases selecionadas pelo usuário agora aparecem cada uma delas com um editor, para que possam ser realizados ajustes no texto, alterações, formatações, e inserção de recursos multimídia (vídeo, imagens, hiperlinks).</li>
+	  <li>O usuário pode adicionar outras palavras-chaves relacionadas, que julga que sejam pertinentes que sejam direcionadas a essas respostas. Por exemplo, junto à lista de frases referentes à palavra-chave “áudio”, o especialista pode acrescentar o termo “som”, se as frases estiverem relacionadas essa temática. Dessa forma, quando o termo “som” for “pronunciado” ou estiver contido no meio de uma frase emitida pelo estudante, uma das frases referentes ao termo “áudio” poderá ser enviada como resposta.</li>
+	  <li>Após o usuário realizar os ajustes necessários e clicar em enviar, a nova tela contém o arquivo AIML contendo todas as tags, permitindo que o usuário tanto visualize essa saída ou faça o download do arquivo. Abaixo uma captura de tela ilustra um exemplo de saída do sistema.</li>
+	</ol> 
+      </p>
+
+    </div>
+    <div class="w3-third w3-center">
+      <i class="fa fa-play-circle w3-padding-64 w3-text-green"></i>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

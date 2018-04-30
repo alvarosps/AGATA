@@ -22,6 +22,9 @@ import re
 def index(request):
     return render(request, 'textMining/index.html')
 
+def tutorial(request):
+    return render(request, 'textMining/tutorial.html')
+
 def aiml(request):
     form = FormKeywords()
     

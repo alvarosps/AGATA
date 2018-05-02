@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    
+
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
 	<div class="container">
 		<button id='selectall'>Select/Unselect All</button>
 		<form action="{% url 'edittext' %}" method="post">
@@ -12,9 +14,12 @@
 				<div class="form-check">
 					{% for sentence in info.sentences %}
 					    <label class="form-check-label">
-					        <input type="checkbox" class="form-check-input" name="{{ info.keyword_id }}" id="{{ sentence.sentence_id }}" value="{{ sentence.sentence_id }}">
+					      <input type="checkbox" class="form-check-input" name="{{ info.keyword_id }}" id="{{ sentence.sentence_id }}" value="{{ sentence.sentence_id }}">
+					      
 					        {{ sentence.sentence }}
-					    </label>
+						
+						<br><br>
+						</label>
 					{% endfor %}
 				</div>
 				<hr>
@@ -33,5 +38,8 @@
 		    });
 		});
 	</script>
+
+	  </div>
+</div>
 
 {% endblock %}

@@ -19,6 +19,23 @@ h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 li {
     margin: 20px 0;
 }
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.frame {  
+    height: 160px; /*can be anything*/
+    width: 160px; /*can be anything*/
+    position: relative;
+}
 </style>
 <body>
 

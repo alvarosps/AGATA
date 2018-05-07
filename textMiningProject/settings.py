@@ -26,7 +26,7 @@ SECRET_KEY = 's0vh!x&$q^b-dzg=975esz26e+ip#wh#h8lz6aqz8#0+k-n+1&'
 DEBUG = True
 
 #ALLOWED_HOSTS = ['agata.pgie.ufrgs.br', 'localhost']
-ALLOWED_HOSTS = ['.agata.pgie.ufrgs.br', 'localhost']
+ALLOWED_HOSTS = ['.agata.pgie.ufrgs.br', 'localhost', '143.54.1.245']
 
 
 

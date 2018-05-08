@@ -26,9 +26,9 @@ def tutorial(request):
     return render(request, 'textMining/tutorial.html')
 
 def aiml(request):
-    form = FormKeywords()
+    forms = FormKeywords()
     
-    return render(request, 'textMining/aiml.html', {'form': form})
+    return render(request, 'textMining/aiml.html', {'form': forms})
 
 def select_text(request):
     book_file = request.FILES['book']

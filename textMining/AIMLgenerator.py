@@ -17,12 +17,12 @@ class AIMLgenerator(object):
         self.aiml.attrib["version"] = "3.0"
         self.aiml.attrib["encoding"] = "UTF-8"
         
-        comment = Comment(     "Copyright 2018 - AGATA\n" +
-                        "URL: http://agata.pgie.ufrgs.br\n" +
-                        "Powered by\n" +
-                        "Aliane Loureiro Krassmann < alkrassmann at gmail.com >\n" +
-                        "João Marcos Flach < joaoflach at gmail.com >\n" +
-                        "Project coordinator: Liane Margarida Rockenbach Tarouco < liane at penta.ufrgs.br >"
+        comment = Comment("\n\nCopyright 2018 - AGATA \n" +
+                        "URL: http://agata.pgie.ufrgs.br \n\n" +
+                        "Powered by \n" +
+                        "Aliane Loureiro Krassmann < alkrassmann at gmail.com > \n" +
+                        "João Marcos Flach < joaoflach at gmail.com > \n\n" +
+                        "Project coordinator: \nLiane Margarida Rockenbach Tarouco < liane at penta.ufrgs.br > \n\n"
         )
         self.aiml.append(comment)
         

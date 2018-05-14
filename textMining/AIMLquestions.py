@@ -32,12 +32,12 @@ class AIMLquestions(AIMLanswers):
                 for j in range(len(pre_defined_phrases_keyword)):
                     questions.append(pre_defined_phrases_keyword[j])
             
-        
+        print (questions)
         return questions
     
     def create_aiml_questions(self):
         #only if len(questions) > 1
-        for i in range(1, len(self.questions)):
+        for i in range(0, len(self.questions)):
             category = SubElement(self.aiml, "category")
             
             pattern = SubElement(category, "pattern")
@@ -47,6 +47,7 @@ class AIMLquestions(AIMLanswers):
             
             srai = SubElement(template, "srai")
             srai.text = self.question
+            print (pattern.text)
         if self._structure["extra"] != "":
             related_keywords = self._structure["extra"].split(";")
             for i in range(len(related_keywords)):
@@ -70,7 +71,6 @@ class AIMLquestions(AIMLanswers):
                     new_pre_defined_phrases.append(self.pre_defined_phrases[i].replace("#", keyword))
             else:
                 new_pre_defined_phrases.append(self.pre_defined_phrases[i].replace("#", keyword))
-        
         return new_pre_defined_phrases
     
     def create_aiml(self):

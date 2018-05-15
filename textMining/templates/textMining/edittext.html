@@ -4,12 +4,13 @@
 
 
 
-<!--
+
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 <script>
   tinymce.init({
   //forced_root_block : false,
   selector: "textarea",
+  width: '100%',
   plugins: [
   'advlist autolink lists link image charmap print preview anchor textcolor',
   'searchreplace visualblocks code fullscreen',
@@ -25,13 +26,11 @@
   entities:'169,copy,8482,trade,ndash,8212,mdash,8216,lsquo,8217,rsquo,8220,ldquo,8221,rdquo,8364,euro'
   });
 </script>
-//-->
 
 	
 <div class="w3-row-padding w3-padding-64 w3-container">
-  <div class="w3-content">
-    
-    <div class="container">
+  <div class="container">
+
       
       <form action="{% url 'generateaiml' %}" method="post">
 	{% csrf_token %}
@@ -43,9 +42,9 @@
 	<div class="form-group">
 	  {% for sentence in info.sentences %}
 
-	    <div class="w3-content w3-center w3-padding-16">
+	    <div class="w3-container w3-center w3-padding-16">
 	      <label class="form-check-label">
-		<textarea class="form-control" id="{{ sentence.sentence_id }}" name="{{ sentence.sentence_id }}" rows="5" cols="100">{{ sentence.sentence }}</textarea>
+		<textarea class="form-control" id="{{ sentence.sentence_id }}" name="{{ sentence.sentence_id }}"> {{ sentence.sentence }}</textarea>
 	      </label>
 	    </div>
 
@@ -93,7 +92,6 @@
       </form>
         </div>
   </div>
-    </div>
   </div>
   
 </div>

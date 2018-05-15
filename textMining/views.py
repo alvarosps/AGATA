@@ -75,7 +75,6 @@ def select_text(request):
 def edit_text(request):
     
     sentences_info = request.session["sentences_info"]
-    
     keywords_sentences = [
         request.POST.getlist('keyword0')
     ]
@@ -88,8 +87,17 @@ def edit_text(request):
     final_sentences_info = generate_final_sentences_info(sentences_info, keywords_sentences)
     
     request.session["final_sentences_info"] = final_sentences_info
+
+    print (final_sentences_info)
+    theres_sentences = False
+
+    for info in final_sentences_info:
+        print (info["sentences"])
+        if (info["sentences"] != []):
+            theres_sentences = True
+        
     
-    return render(request, 'textMining/edittext.html', {'final_sentences_info' : final_sentences_info})
+    return render(request, 'textMining/edittext.html', {'final_sentences_info' : final_sentences_info, 'theres_sentences' : theres_sentences})
 
 def generate_aiml(request):
     final_sentences_info = request.session["final_sentences_info"]

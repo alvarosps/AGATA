@@ -40,6 +40,9 @@
 	<h3>Palavra-Chave: {{ info.keyword }}</h3>
 	<br>
 	<div class="form-group">
+
+
+	  {% if info.sentences %}
 	  {% for sentence in info.sentences %}
 
 	    <div class="w3-container w3-center w3-padding-16">
@@ -50,6 +53,14 @@
 
 	  
 	{% endfor %}
+	  {% else %}
+	  <br>
+	  <h5>Nenhuma frase selecionada para essa palavra-chave.</h5>
+	  <br>
+	  {% endif %}
+
+	  
+	  
 	</div>
 	<hr>
 	{% endfor %}

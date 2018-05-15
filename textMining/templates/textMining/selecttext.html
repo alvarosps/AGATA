@@ -5,24 +5,32 @@
 <div class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content">
 	<div class="container">
-		<button id='selectall'>Select/Unselect All</button>
+	  <input type="button" class="btn btn-primary" value="Selecionar/Deselecionar Todos" id='selectall'/>
 		<form action="{% url 'edittext' %}" method="post">
 			{% csrf_token %}
 
 			{% for info in sentences_info %}
-				<h3>Palavra-Chave: {{ info.keyword }}</h3>
-				<div class="form-check">
-					{% for sentence in info.sentences %}
-					    <label class="form-check-label">
-					      <input type="checkbox" class="form-check-input" name="{{ info.keyword_id }}" id="{{ sentence.sentence_id }}" value="{{ sentence.sentence_id }}">
-					      
-					        {{ sentence.sentence }}
-						
-						<br><br>
-						</label>
-					{% endfor %}
-				</div>
-				<hr>
+			<h3>Palavra-Chave: {{ info.keyword }}</h3>
+			<div class="form-check">
+
+			  {% if info.sentences %}
+			  {% for sentence in info.sentences %}
+			  <label class="form-check-label">
+			    <input type="checkbox" class="form-check-input" name="{{ info.keyword_id }}" id="{{ sentence.sentence_id }}" value="{{ sentence.sentence_id }}">
+			    
+			    {{ sentence.sentence }}
+			    
+			    <br><br>
+			  </label>
+			  {% endfor %}
+			  {% else %}
+			  <br>
+			  <h5>Nenhuma frase encontrada com essa palavra-chave.</h5>
+			  <br>
+			  {% endif %}
+			  
+			</div>
+			<hr>
 			{% endfor %}
 			
 			<input type="submit" class="btn btn-primary" value="Enviar" />

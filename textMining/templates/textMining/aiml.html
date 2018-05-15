@@ -23,12 +23,17 @@
     <h1>Gerar AIML</h1>
     
     <h5 class="w3-padding-32">Digite as palavras-chave e forneça um arquivo:</h5>
-	<head>
+    
+	<!--<head>
 		<meta>
-	</head>
+	</head> -->
+	
 	<form action="{% url 'selecttext' %}" method="post"  enctype="multipart/form-data">
-	    {% csrf_token %}
-	    {{ form|bootstrap }}
+	  {% csrf_token %}
+	  
+	  {{ form|bootstrap }}
+
+	  
 	    <small id="required" class="form-text text-muted">* Campo Obrigatorio.</small>
 	    <br/>
 	    <input type="submit" class="btn btn-primary" value="Enviar" />

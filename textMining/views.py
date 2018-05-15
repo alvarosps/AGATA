@@ -88,11 +88,11 @@ def edit_text(request):
     
     request.session["final_sentences_info"] = final_sentences_info
 
-    print (final_sentences_info)
+    #print (final_sentences_info)
     theres_sentences = False
 
     for info in final_sentences_info:
-        print (info["sentences"])
+        #print (info["sentences"])
         if (info["sentences"] != []):
             theres_sentences = True
         

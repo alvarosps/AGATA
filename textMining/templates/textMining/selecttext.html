@@ -5,12 +5,18 @@
 <div class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content">
 	<div class="container">
-	  <input type="button" class="btn btn-primary" value="Selecionar/Deselecionar Todos" id='selectall'/>
 		<form action="{% url 'edittext' %}" method="post">
 			{% csrf_token %}
 
 			{% for info in sentences_info %}
 			<h3>Palavra-Chave: {{ info.keyword }}</h3>
+
+			<!-- <input type="button" class="btn btn-primary" value="Selecionar/Deselecionar Todos" id="{{ info.keyword_id }}"/> -->
+
+			<input type="checkbox" id="{{ info.keyword_id }}" onClick="selectAll(this)" /> Selecionar/Deselecionar Todos
+
+			<br>
+			
 			<div class="form-check">
 
 			  {% if info.sentences %}
@@ -39,13 +45,15 @@
 	
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script type="text/javascript">
-		$("#selectall").click(function() {
-		    $("input[type='checkbox']").each(function() {
-		        this.checked = !this.checked;
-		    });
-		});
-	</script>
+	
+
+<script language="JavaScript">
+	function selectAll(source) {
+		checkboxes = document.getElementsByName(source.id);
+		for(var i in checkboxes)
+			checkboxes[i].checked = source.checked;
+	}
+</script>
 
 	  </div>
 </div>

@@ -13,9 +13,10 @@
 
 			<!-- <input type="button" class="btn btn-primary" value="Selecionar/Deselecionar Todos" id="{{ info.keyword_id }}"/> -->
 
-			<input type="checkbox" id="{{ info.keyword_id }}" onClick="selectAll(this)" /> Selecionar/Deselecionar Todos
-
 			<br>
+			<input type="checkbox" id="{{ info.keyword_id }}" onClick="selectAll(this)"/> <b>Selecionar/Deselecionar Todos</b>
+
+			<br><br>
 			
 			<div class="form-check">
 
@@ -23,9 +24,9 @@
 			  {% for sentence in info.sentences %}
 			  <label class="form-check-label">
 			    <input type="checkbox" class="form-check-input" name="{{ info.keyword_id }}" id="{{ sentence.sentence_id }}" value="{{ sentence.sentence_id }}">
-			    
-			    {{ sentence.sentence }}
-			    
+			
+			    {{ sentence.sentence|safe }}
+			  
 			    <br><br>
 			  </label>
 			  {% endfor %}

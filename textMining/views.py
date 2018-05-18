@@ -214,7 +214,9 @@ def generate_sentences_info(sentences):
         for j in range(len(sentences[keywords[i]])):
             aux_sentences = dict()
             aux_sentences["sentence_id"] = "sentence" + str( sentence_id )
-            aux_sentences["sentence"] = sentences[keywords[i]][j]
+            #aux_sentences["sentence"] = sentences[keywords[i]][j] + " lalala"
+
+            aux_sentences["sentence"] = re.sub(keywords[i], "<b>" + keywords[i] + "</b>", sentences[keywords[i]][j])
             
             aux_keyword_sentences.append(aux_sentences)
             

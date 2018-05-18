@@ -9,12 +9,15 @@
 			{% csrf_token %}
 
 			{% for info in sentences_info %}
+			<br>
 			<h3>Palavra-Chave: {{ info.keyword }}</h3>
 
 			<!-- <input type="button" class="btn btn-primary" value="Selecionar/Deselecionar Todos" id="{{ info.keyword_id }}"/> -->
 
 			<br>
-			<input type="checkbox" id="{{ info.keyword_id }}" onClick="selectAll(this)"/> <b>Selecionar/Deselecionar Todos</b>
+			<input type="checkbox" id="{{ info.keyword_id }}" onClick="selectAll(this)">
+
+			<b>Selecionar/Deselecionar Todos</b>
 
 			<br><br>
 			
@@ -26,7 +29,7 @@
 			    <input type="checkbox" class="form-check-input" name="{{ info.keyword_id }}" id="{{ sentence.sentence_id }}" value="{{ sentence.sentence_id }}">
 			
 			    {{ sentence.sentence|safe }}
-			  
+			 
 			    <br><br>
 			  </label>
 			  {% endfor %}

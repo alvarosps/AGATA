@@ -216,7 +216,7 @@ def generate_sentences_info(sentences):
             aux_sentences["sentence_id"] = "sentence" + str( sentence_id )
             #aux_sentences["sentence"] = sentences[keywords[i]][j] + " lalala"
 
-            aux_sentences["sentence"] = re.sub(keywords[i], "<b>" + keywords[i] + "</b>", sentences[keywords[i]][j])
+            aux_sentences["sentence"] = re.sub(keywords[i], "<b><font color=\"green\">" + keywords[i] + "</font></b>", sentences[keywords[i]][j])
             
             aux_keyword_sentences.append(aux_sentences)
             

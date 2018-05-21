@@ -24,25 +24,70 @@
     
     <div class="w3-twothird">
       <h1></h1>
-      <h5 class="w3-padding-32">O sistema AGATA utiliza as tecnologias Python, Django, PHP, e funciona da seguinte forma:</h5>
+      <!--<h5 class="w3-padding-32">O sistema AGATA utiliza as tecnologias Python, Django, PHP, e funciona da seguinte forma:</h5>-->
 
+      <h5 class="w3-padding-32">Requisitos</h5>
+      
+      O sistema exige um arquivo texto adequado. Este arquivo pode ser um livro, uma apostila, um artigo, uma revista, etc., desde que possua frases que explicam um conceito e esteja no formato txt. Sugere-se que sejam retiradas as figuras, tabelas, quadros e gráficos do arquivo, realizando uma “limpeza” no mesmo, para que permaneça somente o conteúdo textual.
+
+    </div>
+        <div class="w3-third w3-center">
+      <i class="fa fa-play-circle w3-padding-64 w3-text-green"></i>
+    </div>
+      
+      <h5 class="w3-padding-32">Passo-a-passo</h5>
+
+      
       <p class="w3-text-dark-grey">
 	<ol>
-	  <li>O usuário seleciona um arquivo no seu computador e faz o upload, enviando-o para o sistema. Este arquivo pode ser um livro, uma apostila, um artigo, uma revista, etc., desde que possua frases que explicam um conceito e esteja no formato txt. Neste momento, sugere-se que sejam retiradas as figuras, tabelas, quadros e gráficos do arquivo, realizando uma “limpeza” no mesmo, para que permaneça somente o conteúdo textual.</li>
-	  <li>O usuário insere de uma a três palavras-chave para busca e clica em enviar.</li>
-	  <li>Em uma nova tela, as frases que contém cada uma dessas palavras-chaves são exibidas, ordenadas por termo buscado e ordem em que aparecem no corpus.</li>
-	  <li>O usuário seleciona as frases que deseja utilizar, clicando em caixas de seleção. Neste momento, o especialista de domínio, a pessoa que possui o conhecimento acerca do corpus em questão, utiliza sua expertise para indicar as frases mais significativas, e que sejam condizentes com uma “resposta” ao usuário em uma conversa com o chatterbot.</li>
-	  <li>Em uma nova tela, as frases selecionadas pelo usuário agora aparecem cada uma delas com um editor, para que possam ser realizados ajustes no texto, alterações, formatações, e inserção de recursos multimídia (vídeo, imagens, hiperlinks).</li>
-	  <li>O usuário pode adicionar outras palavras-chaves relacionadas, que julga que sejam pertinentes que sejam direcionadas a essas respostas. Por exemplo, junto à lista de frases referentes à palavra-chave “áudio”, o especialista pode acrescentar o termo “som”, se as frases estiverem relacionadas essa temática. Dessa forma, quando o termo “som” for “pronunciado” ou estiver contido no meio de uma frase emitida pelo estudante, uma das frases referentes ao termo “áudio” poderá ser enviada como resposta.</li>
-	  <li>Após o usuário realizar os ajustes necessários e clicar em enviar, a nova tela contém o arquivo AIML contendo todas as tags, permitindo que o usuário tanto visualize essa saída ou faça o download do arquivo. Abaixo uma captura de tela ilustra um exemplo de saída do sistema.</li>
+	  <li>
+	     A partir da tela de boas-vindas, clique em "Começar", ou clique na aba "AIML" na parte superior da tela. Você será direcionado para a página inicial do sistema, que pode ser vista abaixo:
+	  </li>
+
+	  <img border="0" alt="tela inicial" src="/static/images/tutorial/tela_inicial.png" width="100%" style="border:3px solid green">
+	  
+	  <li>
+	    O usuário insere de uma a três palavras-chave para busca. Essas palavras-chave devem estar relacionadas entre si, pois todas elas estarão ligadas às mesmas frases no arquivo resultante do sistema.
+	  </li>
+
+	  <img border="0" alt="tela inicial" src="/static/images/tutorial/tela_inicial_2.png" width="100%" style="border:3px solid green">
+	  
+	  <li>
+	    O usuário seleciona o arquivo texto de seu computador e faz o upload.
+	  </li>
+
+	  <img border="0" alt="tela inicial" src="/static/images/tutorial/tela_inicial_3.png" width="100%" style="border:3px solid green">
+
+	  <li>
+	    Em uma nova tela, as frases que contém cada uma dessas palavras-chaves são exibidas, ordenadas por termo buscado e ordem em que aparecem no corpus.
+	    O usuário seleciona as frases que deseja utilizar, clicando em caixas de seleção. Neste momento, o especialista de domínio, a pessoa que possui o conhecimento acerca do corpus em questão, utiliza sua expertise para indicar as frases mais significativas, e que sejam condizentes com uma “resposta” ao usuário em uma conversa com o chatterbot.
+	  </li>
+
+	  <img border="0" alt="tela inicial" src="/static/images/tutorial/tela_selecao.png" width="100%" style="border:3px solid green">
+	  
+	  <li>
+	    Em uma nova tela, as frases selecionadas pelo usuário agora aparecem cada uma delas com um editor, para que possam ser realizados ajustes no texto, alterações, formatações, e inserção de recursos multimídia (vídeo, imagens, hiperlinks).
+	  </li>
+
+	  <img border="0" alt="tela inicial" src="/static/images/tutorial/tela_edicao.png" width="100%" style="border:3px solid green">
+	  
+	  <li>
+	    O usuário pode adicionar outras palavras-chaves relacionadas, que julga que sejam pertinentes que sejam direcionadas a essas respostas. Por exemplo, junto à lista de frases referentes à palavra-chave “áudio”, o especialista pode acrescentar o termo “som”, se as frases estiverem relacionadas essa temática. Dessa forma, quando o termo “som” for “pronunciado” ou estiver contido no meio de uma frase emitida pelo estudante, uma das frases referentes ao termo “áudio” poderá ser enviada como resposta.
+	  </li>
+
+	  <img border="0" alt="tela inicial" src="/static/images/tutorial/tela_edicao_2.png" width="100%" style="border:3px solid green">
+	  
+	  <li>
+	    Após o usuário realizar os ajustes necessários e clicar em enviar, a nova tela contém o arquivo AIML contendo todas as tags, permitindo que o usuário tanto visualize essa saída ou faça o download do arquivo. Abaixo uma captura de tela ilustra um exemplo de saída do sistema.
+	  </li>
+
+	  <img border="0" alt="tela inicial" src="/static/images/tutorial/saida.png" width="100%" style="border:3px solid green">
+	  
 	</ol> 
       </p>
 
     </div>
-    <div class="w3-third w3-center">
-      <i class="fa fa-play-circle w3-padding-64 w3-text-green"></i>
-    </div>
-  </div>
+
 </div>
 
 

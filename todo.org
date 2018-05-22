@@ -16,4 +16,5 @@ Pois é preciso buscar no texto e selecionar, as de aprendizagem e as de aprendi
 
 Acredito que uma explicação sobre isso na tela inicial é bem-vinda.
 
-**  
+** Palavra-Chave c minusculo inserir dois pontos
+** ingles -> pt

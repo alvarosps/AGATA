@@ -23,10 +23,14 @@
     <h1>Gerar AIML</h1>
     
     <h5 class="w3-padding-32">Digite as palavras-chave e forneça um arquivo:</h5>
+
+    Essas palavras-chave devem estar relacionadas entre si, pois todas elas estarão ligadas às mesmas frases no arquivo resultante do sistema. 
     
 	<!--<head>
 		<meta>
 	</head> -->
+
+	<!--<label for="file">Arquivo</label>-->
 	
 	<form action="{% url 'selecttext' %}" method="post"  enctype="multipart/form-data">
 	  {% csrf_token %}
@@ -34,7 +38,30 @@
 	  {{ form|bootstrap }}
 
 	  
-	    <small id="required" class="form-text text-muted">* Campo Obrigatorio.</small>
+	  Livro-Texto (formato .txt) *
+        <div class="form-group">
+          <label class="control-label" for="id_book" style="
+							    width : 90px;
+							    border-radius: 5px;
+							    padding: 5px;
+							    font-size: 11px;
+							    text-align: center;
+							    color: #FFF;
+							    cursor: pointer;
+							    background-color: #090;
+							    "
+		 >
+	    Procurar
+	  </label>
+	</div>
+	<div class=" ">
+          <input name="book" id="id_book" required="" type="file" style="display: none">
+        </div>
+        
+    
+
+	  
+	    <small id="required" class="form-text text-muted">* Campo obrigatorio.</small>
 	    <br/>
 	    <input type="submit" class="btn btn-primary" value="Enviar" />
 	</form>

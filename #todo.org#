@@ -1,0 +1,20 @@
+* TODO
+
+** Explicação palavras-chave tela inicial
+
+Pra facilitar, fizemos com que o sistema deva ser usado com termos semelhantes.
+
+Exemplo, ao buscar aprendizagem, buscar aprendizado e aprendizagens.
+
+Ou seja, não buscar aprendizagem e audiodescrição, pois virão coisas distintas.
+
+Vindo termos semelhantes, todos irão direcionar para a raiz, que vai conter todas as respostas.
+
+Por que não incluir as palavras chaves todas no final?
+
+Pois é preciso buscar no texto e selecionar, as de aprendizagem e as de aprendizado. E ao final, posso querer incluir aprendiz, que sei que não consta no texto ou não quis procurar, mas que tem relação.
+
+Acredito que uma explicação sobre isso na tela inicial é bem-vinda.
+
+** Palavra-Chave c minusculo inserir dois pontos
+** ingles -> pt

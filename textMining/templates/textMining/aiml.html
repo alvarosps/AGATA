@@ -23,10 +23,11 @@
   <div class="w3-content">
 
     <h1>Gerar AIML</h1>
-    
-    <h5 class="w3-padding-32">Digite as palavras-chave e forneça um arquivo:</h5>
 
-    Essas palavras-chave devem estar relacionadas entre si, pois todas elas estarão ligadas às mesmas frases no arquivo resultante do sistema. 
+    <br><br>
+    <li><h5>Digite as palavras-chave:</h5></li>
+
+    <h6 class="w3-padding-16"><i>As palavras-chave devem estar relacionadas entre si, pois todas elas estarão ligadas às mesmas frases no arquivo resultante do sistema.</i></h6>
     
     <!--<head>
 	<meta>
@@ -41,13 +42,12 @@
 
       <br>
 
+      <li><h5>Forneça um arquivo:</h5></li>
 
+      <h6 class="w3-padding-16"><i>O sistema exige um arquivo somente com conteúdo textual.</i></h6>
       
-      Livro-Texto (formato .txt): * 
-
-      <br>
-      <p id="demo">Nenhum arquivo selecionado</p>
-
+      
+      <!--Livro-Texto (formato .txt): * -->
 
       <div class="form-group">
 
@@ -63,6 +63,8 @@
 							  ">
 	  Procurar...
 	</label>
+	
+      <p id="demo">Nenhum arquivo selecionado</p>
 
       </div>
 
@@ -76,7 +78,7 @@
 
       
       <small id="required" class="form-text text-muted">* Campo obrigatorio.</small>
-      <br/>
+      <br>
       <input type="submit" class="btn btn-primary" value="Enviar" />
     </form>
 
@@ -90,7 +92,7 @@
   var backslash=fullpath.lastIndexOf("\\");
   var filename = fullpath.substr(backslash+1);
   
-  document.getElementById("demo").innerHTML = filename;
+  document.getElementById("demo").innerHTML = "Arquivo selecionado: " + filename;
   });
 </script>
 

@@ -16,6 +16,8 @@
 
 {% block content %}
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 
 <div class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content">
@@ -26,47 +28,72 @@
 
     Essas palavras-chave devem estar relacionadas entre si, pois todas elas estarão ligadas às mesmas frases no arquivo resultante do sistema. 
     
-	<!--<head>
-		<meta>
-	</head> -->
+    <!--<head>
+	<meta>
+    </head> -->
 
-	<!--<label for="file">Arquivo</label>-->
-	
-	<form action="{% url 'selecttext' %}" method="post"  enctype="multipart/form-data">
-	  {% csrf_token %}
-	  
-	  {{ form|bootstrap }}
-
-	  
-	  Livro-Texto (formato .txt) *
-        <div class="form-group">
-          <label class="control-label" for="id_book" style="
-							    width : 90px;
-							    border-radius: 5px;
-							    padding: 5px;
-							    font-size: 11px;
-							    text-align: center;
-							    color: #FFF;
-							    cursor: pointer;
-							    background-color: #090;
-							    "
-		 >
-	    Procurar
-	  </label>
-	</div>
-	<div class=" ">
-          <input name="book" id="id_book" required="" type="file" style="display: none">
-        </div>
-        
+    <!--<label for="file">Arquivo</label>-->
     
+    <form action="{% url 'selecttext' %}" method="post"  enctype="multipart/form-data">
+      {% csrf_token %}
+      
+      {{ form|bootstrap }}
 
-	  
-	    <small id="required" class="form-text text-muted">* Campo obrigatorio.</small>
-	    <br/>
-	    <input type="submit" class="btn btn-primary" value="Enviar" />
-	</form>
+      <br>
+
+
+      
+      Livro-Texto (formato .txt): * 
+
+      <br>
+      <p id="demo">Nenhum arquivo selecionado</p>
+
+
+      <div class="form-group">
+
+        <label class="control-label" for="id_book" style="
+							  width : 90px;
+							  border-radius: 5px;
+							  padding: 5px;
+							  font-size: 11px;
+							  text-align: center;
+							  color: #FFF;
+							  cursor: pointer;
+							  background-color: #090;
+							  ">
+	  Procurar...
+	</label>
+
+      </div>
+
+      
+      <div class=" ">
+        <input name="book" id="id_book" required="" type="file" style="display: none">
+      </div>
+      
+
+
+
+      
+      <small id="required" class="form-text text-muted">* Campo obrigatorio.</small>
+      <br/>
+      <input type="submit" class="btn btn-primary" value="Enviar" />
+    </form>
 
   </div>
 </div>
+
+<script>
+  $('#id_book').change(function()
+  {
+  var fullpath = document.getElementById("id_book").value;
+  var backslash=fullpath.lastIndexOf("\\");
+  var filename = fullpath.substr(backslash+1);
+  
+  document.getElementById("demo").innerHTML = filename;
+  });
+</script>
+
+
 
 {% endblock %}

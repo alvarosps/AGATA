@@ -1,6 +1,6 @@
 * TODO
 
-** Explicação palavras-chave tela inicial
+** DONE Explicação palavras-chave tela inicial
 
 Pra facilitar, fizemos com que o sistema deva ser usado com termos semelhantes.
 
@@ -16,5 +16,5 @@ Pois é preciso buscar no texto e selecionar, as de aprendizagem e as de aprendi
 
 Acredito que uma explicação sobre isso na tela inicial é bem-vinda.
 
-** Palavra-Chave c minusculo inserir dois pontos
-** ingles -> pt
+** DONE Palavra-Chave c minusculo inserir dois pontos
+** DONE ingles -> pt

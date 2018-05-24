@@ -51,7 +51,7 @@
 
       <div class="form-group">
 
-        <label class="control-label" for="id_book" style="
+        <label id="id_label" class="control-label" for="id_book" style="
 							  width : 90px;
 							  border-radius: 3px;
 							  padding: 8px;
@@ -62,40 +62,56 @@
 							  background-color: #090;
 							  ">
 	  Procurar...
-	</label>
-	
-      <p id="demo">Nenhum arquivo selecionado</p>
+	      </label>
 
+  <p id="demo">Nenhum arquivo selecionado</p>
+  <p id="msg_verifica"></p>
       </div>
 
-      
       <div class=" ">
         <input name="book" id="id_book" required="" type="file" style="display: none">
       </div>
-      
 
 
 
-      
+
+
       <small id="required" class="form-text text-muted">* Campo obrigatorio.</small>
       <br>
-      <input type="submit" class="btn btn-primary" value="Enviar" />
+      <input type="submit" class="btn btn-primary" value="Enviar" onClick="verifica_campos()" />
+
     </form>
 
   </div>
 </div>
 
 <script>
-  $('#id_book').change(function()
-  {
-  var fullpath = document.getElementById("id_book").value;
-  var backslash=fullpath.lastIndexOf("\\");
-  var filename = fullpath.substr(backslash+1);
-  
-  document.getElementById("demo").innerHTML = "Arquivo selecionado: " + filename;
-  });
+ $('#id_book').change(function()
+     {
+         var fullpath = document.getElementById("id_book").value;
+         var backslash=fullpath.lastIndexOf("\\");
+         var filename = fullpath.substr(backslash+1);
+
+         document.getElementById("demo").innerHTML = "Arquivo selecionado: " + filename;
+     });
 </script>
 
+<script>
+ function verifica_campos() {
+     var key_word = document.getElementById("id_keyword_1");
+     if(key_word.value.length < 4) {
+         alert('Digite ao menos uma palavra chave!');
+         //document.getElementById("id_label").focus();
+         return false;
+     }
 
+     var book = document.getElementById("id_book");
+     if(book.value.length < 4) {
+         alert('Nenhum arquivo selecionado!');
+         //document.getElementById("id_label").focus();
+         return false;
+     }
+ }
+</script>
 
 {% endblock %}

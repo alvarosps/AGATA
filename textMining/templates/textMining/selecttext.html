@@ -24,7 +24,10 @@
 			<div class="form-check">
 
 			  {% if info.sentences %}
-			  {% for sentence in info.sentences %}
+			    {% for sentence in info.sentences %}
+
+          <div>
+
 			  <label class="form-check-label">
 			    <input type="checkbox" class="form-check-input" name="{{ info.keyword_id }}" id="{{ sentence.sentence_id }}" value="{{ sentence.sentence_id }}">
 			
@@ -32,6 +35,8 @@
 			 
 			    <br><br>
 			  </label>
+
+          </div>
 			  {% endfor %}
 			  {% else %}
 			  <br>

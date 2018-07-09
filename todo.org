@@ -19,5 +19,5 @@ Acredito que uma explicação sobre isso na tela inicial é bem-vinda.
 ** DONE Palavra-Chave c minusculo inserir dois pontos
 ** DONE ingles -> pt
 
-** TODO gerar patterns pras palavras-chave que o usuario insere no final
-
+** DONE gerar patterns pras palavras-chave que o usuario insere no final
+   CLOSED: [2018-05-28 Seg 16:41]

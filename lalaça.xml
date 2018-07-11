@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<aiml encoding="UTF-8" version="3.0">
+ <!--
+
+Copyright 2018 - AGATA 
+URL: http://agata.pgie.ufrgs.br 
+
+Powered by 
+Aliane Loureiro Krassmann < alkrassmann at gmail.com > 
+João Marcos Flach < joaoflach at gmail.com > 
+
+Project coordinator: 
+Liane Margarida Rockenbach Tarouco < liane at penta.ufrgs.br > 
+
+-->
+ <category>
+  <pattern>atração</pattern>
+  <template>
+   <random>
+    <li>&lt;p&gt;(a) Atraente, como a &lt;strong&gt;&lt;span style="color: green;"&gt;atração&lt;/span&gt;&lt;/strong&gt; da terra.&lt;/p&gt;</li>
+    <li>&lt;p&gt;Isso ajudará a evitar confusão se reservarmos os termos simples "grama" e "libra" para denotar exclusivamente uma quantidade de matéria, isto é, uma massa, e usar a expressão completa "grama de força" ou "libra de força" sempre que temos em mente a &lt;strong&gt;&lt;span style="color: green;"&gt;atração&lt;/span&gt;&lt;/strong&gt; da terra sobre essas massas.&lt;/p&gt;</li>
+    <li>&lt;p&gt;Se uma bola é lançada no ar iria seguir para sempre, se não fosse pela força de &lt;strong&gt;&lt;span style="color: green;"&gt;atração&lt;/span&gt;&lt;/strong&gt; da terra e a resistência do ar.&lt;/p&gt;</li>
+   </random>
+  </template>
+ </category>
+ <category>
+  <pattern>* atração</pattern>
+  <template>
+   <srai>atração</srai>
+  </template>
+ </category>
+ <category>
+  <pattern>* atração *</pattern>
+  <template>
+   <srai>atração</srai>
+  </template>
+ </category>
+ <category>
+  <pattern>atração *</pattern>
+  <template>
+   <srai>atração</srai>
+  </template>
+ </category>
+ <category>
+  <pattern>FALE SOBRE atração</pattern>
+  <template>
+   <srai>atração</srai>
+  </template>
+ </category>
+ <category>
+  <pattern>DEFINA atração</pattern>
+  <template>
+   <srai>atração</srai>
+  </template>
+ </category>
+ <category>
+  <pattern>O QUE É atração</pattern>
+  <template>
+   <srai>atração</srai>
+  </template>
+ </category>
+ <category>
+  <pattern>PARA QUE SERVE atração</pattern>
+  <template>
+   <srai>atração</srai>
+  </template>
+ </category>
+ <category>
+  <pattern>O QUE * atração</pattern>
+  <template>
+   <srai>atração</srai>
+  </template>
+ </category>
+ <category>
+  <pattern>COMO * atração</pattern>
+  <template>
+   <srai>atração</srai>
+  </template>
+ </category>
+ <category>
+  <pattern/>
+  <template>
+   <srai>atração</srai>
+  </template>
+ </category>
+ <category>
+  <pattern>*</pattern>
+  <template>
+   <srai>atração</srai>
+  </template>
+ </category>
+ <category>
+  <pattern>*  *</pattern>
+  <template>
+   <srai>atração</srai>
+  </template>
+ </category>
+ <category>
+  <pattern>*</pattern>
+  <template>
+   <srai>atração</srai>
+  </template>
+ </category>
+ <category>
+  <pattern>FALE SOBRE</pattern>
+  <template>
+   <srai>atração</srai>
+  </template>
+ </category>
+ <category>
+  <pattern>DEFINA</pattern>
+  <template>
+   <srai>atração</srai>
+  </template>
+ </category>
+ <category>
+  <pattern>O QUE É</pattern>
+  <template>
+   <srai>atração</srai>
+  </template>
+ </category>
+ <category>
+  <pattern>PARA QUE SERVE</pattern>
+  <template>
+   <srai>atração</srai>
+  </template>
+ </category>
+ <category>
+  <pattern>O QUE *</pattern>
+  <template>
+   <srai>atração</srai>
+  </template>
+ </category>
+ <category>
+  <pattern>COMO *</pattern>
+  <template>
+   <srai>atração</srai>
+  </template>
+ </category>
+</aiml>

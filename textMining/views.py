@@ -18,6 +18,7 @@ import os
 import json
 from textMining.AIMLquestions import AIMLquestions
 import re
+from unicodedata import normalize
 
 def index(request):
     return render(request, 'textMining/index.html')
@@ -29,6 +30,9 @@ def aiml(request):
     forms = FormKeywords()
 
     return render(request, 'textMining/aiml.html', {'form': forms})
+
+def remover_acentos(txt):
+    return normalize('NFKD', txt).encode('ASCII', 'ignore').decode('ASCII')
 
 def select_text(request):
     book_file = request.FILES['book']
@@ -119,6 +123,8 @@ def generate_aiml(request):
     relatedKeywords = request.POST["relatedKeywords"]
 
     user_file_name = request.POST["fileName"]
+
+    user_file_name = remover_acentos(user_file_name)
 
     final_info = {
         "keywords" : keywords,

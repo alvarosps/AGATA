@@ -25,6 +25,8 @@ class AIMLquestions(AIMLanswers):
         questions = list()
 
         if self.typeOfAIML == "pre_defined":
+            print("pegando questoes")
+            print(len(self._structure["keywords"]))
             for i in range(len(self._structure["keywords"])):
                 if i == 0:
                     pre_defined_phrases_keyword = self.replace_keywords(self._structure["keywords"][i], firstKeyword=True)
@@ -33,11 +35,18 @@ class AIMLquestions(AIMLanswers):
                 for j in range(len(pre_defined_phrases_keyword)):
                     questions.append(pre_defined_phrases_keyword[j])
 
+
             related_keywords = self._structure["extra"].split(";")
-            for i in range(len(related_keywords)):
-                pre_defined_phrases_keyword = self.replace_keywords(related_keywords[i])
-                for j in range(len(pre_defined_phrases_keyword)):
-                    questions.append(pre_defined_phrases_keyword[j])
+
+            # correção do bug e-mail 22/7: coloquei esse if pq o split retornava uma lista com um item
+            if related_keywords != ['']:
+                print("pegando questoes extras")
+                print(len(related_keywords))
+
+                for i in range(len(related_keywords)):
+                    pre_defined_phrases_keyword = self.replace_keywords(related_keywords[i])
+                    for j in range(len(pre_defined_phrases_keyword)):
+                        questions.append(pre_defined_phrases_keyword[j])
 
         print (questions)
         return questions
@@ -45,7 +54,8 @@ class AIMLquestions(AIMLanswers):
     def create_aiml_questions(self):
         #only if len(questions) > 1
         #criando as questoes para as palavras-chave normais
-        print("normais")
+        print("normais de tamanho ")
+        print(len(self.questions))
         for i in range(0, len(self.questions)):
             category = SubElement(self.aiml, "category")
 
@@ -56,7 +66,7 @@ class AIMLquestions(AIMLanswers):
 
             srai = SubElement(template, "srai")
             srai.text = self.question
-            #print (pattern.text)
+            print (pattern.text)
 
         #criando as questoes para as palavras-chave extras
         print("extra")

@@ -47,7 +47,7 @@ class TextMining(object):
     def search_keywords_sentences(self, keyword):
         self._keyword_sentences[keyword] = []
         for sentence in self._sentences:
-            if len( re.findall('\\b' + keyword + '\\b', sentence) ) > 0:
+            if len( re.findall('\\b' + keyword + '\\b', sentence, re.I) ) > 0:
                 self._keyword_sentences[keyword].append(sentence)
 
 

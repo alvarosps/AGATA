@@ -223,6 +223,7 @@ def generate_sentences_info(sentences):
         aux_sentence_info = dict()
 
         aux_sentence_info["keyword"] = keywords[i]
+        aux_sentence_info["number_of_occurencies"] = len(sentences[keywords[i]])
         aux_sentence_info["keyword_id"] = "keyword" + str(i)
         aux_keyword_sentences = list()
         for j in range(len(sentences[keywords[i]])):
@@ -231,6 +232,10 @@ def generate_sentences_info(sentences):
             #aux_sentences["sentence"] = sentences[keywords[i]][j] + " lalala"
 
             aux_sentences["sentence"] = re.sub(keywords[i], "<b><font color=\"green\">" + keywords[i] + "</font></b>", sentences[keywords[i]][j])
+
+            aux_sentences["sentence"] = re.sub(keywords[i].title(), "<b><font color=\"green\">" + keywords[i].title() + "</font></b>", aux_sentences["sentence"])
+
+            aux_sentences["sentence"] = re.sub(keywords[i].upper(), "<b><font color=\"green\">" + keywords[i].upper() + "</font></b>", aux_sentences["sentence"])
 
             aux_keyword_sentences.append(aux_sentences)
 

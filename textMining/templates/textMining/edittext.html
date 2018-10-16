@@ -45,26 +45,15 @@
 
 	<h1>Simple Example of dynamically add and remove Tinymce 4</h1>
 
-	<div class="row well"><a class="add-type btn btn-primary pull-right" href="javascript: void(0)" tiitle="Click to add more"><i class="glyphicon glyphicon-plus-sign"></i> Add More TextArea</a>
-	</div>
 
 
-	<div id="type_container">
-		<div class="row form-group" id="edit-0">
-			<div class="col-md-8">
-				<textarea class="tinymce-enabled-message" id="description1">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt est ac dolor condimentum vitae laoreet ante accumsan. Nullam tincidunt tincidunt ante tempus commodo.
-              </textarea>
-			</div>
-		</div>
-	</div>
 
 
 <div id="type-container" class="hide" style="visibility:hidden">
 	<div class="row form-group type-row" id="">
 		<div class="col-md-8">
 			<textarea class="tinymce-enabled-message-new" id="">
-              Duis rutrum, magna non lacinia tincidunt, risus lacus tempus ipsum, sit amet euismod justo metus ut metus. Donec feugiat urna non leo laoreet in tincidunt lectus gravida.
+
           </textarea>
 		</div>
 	</div>
@@ -85,12 +74,15 @@
 
 	{% for sentence in info.sentences %}
 
-	<div class="w3-container w3-center w3-padding-16">
-	  <label class="form-check-label">
-	    <textarea class="form-control" id="{{ sentence.sentence_id }}" name="{{ sentence.sentence_id}}"> {{ sentence.sentence }}
+    <div id="type_container">
+		<div class="row form-group" id="edit-0">
+			<div class="col-md-8">
+				<textarea class="tinymce-enabled-message" value={{ sentence.sentence_id }} id={{ sentence.sentence_id }}>
+                     {{ sentence.sentence }}
         </textarea>
-	  </label>
-	</div>
+    </div>
+</div>
+</div>
 
 	{% endfor %}
     </div>
@@ -106,7 +98,8 @@
 
 
 
-
+    <div class="row well"><a class="add-type btn btn-primary pull-right" href="javascript: void(0)" tiitle="Click to add more"><i class="glyphicon glyphicon-plus-sign"></i> Add More TextArea</a>
+	</div>
 
     <input type="button" value="Add" id="{{ info.keyword }}" onClick="mais_tiny(this)">
 

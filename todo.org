@@ -21,3 +21,10 @@ Acredito que uma explicação sobre isso na tela inicial é bem-vinda.
 
 ** DONE gerar patterns pras palavras-chave que o usuario insere no final
    CLOSED: [2018-05-28 Seg 16:41]
+
+
+***** Colocar em Português o TinyMCE
+* Criar um botão para gerar o arquivo AIML sem os recursos multimídia (só frases).
+* Criar um botão para inserir mais caixas TinyMCE, em que o usuário possa inserir e editar mais frases manualmente.
+***** Nome do Arquivo trocar por Nome do arquivo:
+***** Palavras-Chave Relacionadas trocar por Palavras-chave relacionadas:

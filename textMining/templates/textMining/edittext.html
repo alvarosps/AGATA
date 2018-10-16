@@ -4,11 +4,13 @@
 
 {% block content %}
 
+
+<script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.1.min.js"></script>
 <script src="/static/tinymce/js/tinymce/tinymce.min.js"></script>
+
 <script>
   tinymce.init({
   //forced_root_block : false,
-  selector: "textarea",
   width: '100%',
   plugins: [
   'advlist autolink lists link image charmap print preview anchor textcolor',
@@ -32,12 +34,42 @@
 
 
 
-
 <div class="w3-row-padding w3-padding-64 w3-container">
   <div class="container">
     <form action="{% url 'generateaiml' %}" method="post">
 
       {% csrf_token %}
+
+
+
+
+	<h1>Simple Example of dynamically add and remove Tinymce 4</h1>
+
+	<div class="row well"><a class="add-type btn btn-primary pull-right" href="javascript: void(0)" tiitle="Click to add more"><i class="glyphicon glyphicon-plus-sign"></i> Add More TextArea</a>
+	</div>
+
+
+	<div id="type_container">
+		<div class="row form-group" id="edit-0">
+			<div class="col-md-8">
+				<textarea class="tinymce-enabled-message" id="description1">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt est ac dolor condimentum vitae laoreet ante accumsan. Nullam tincidunt tincidunt ante tempus commodo.
+              </textarea>
+			</div>
+		</div>
+	</div>
+
+
+<div id="type-container" class="hide" style="visibility:hidden">
+	<div class="row form-group type-row" id="">
+		<div class="col-md-8">
+			<textarea class="tinymce-enabled-message-new" id="">
+              Duis rutrum, magna non lacinia tincidunt, risus lacus tempus ipsum, sit amet euismod justo metus ut metus. Donec feugiat urna non leo laoreet in tincidunt lectus gravida.
+          </textarea>
+		</div>
+	</div>
+</div>
+
 
       {% for info in final_sentences_info %}
 
@@ -78,14 +110,7 @@
 
     <input type="button" value="Add" id="{{ info.keyword }}" onClick="mais_tiny(this)">
 
-    <div id="empty_form" style="display:none">
-        <div class="w3-container w3-center w3-padding-16">
-        <label class="form-check-label">
-          <textarea class="form-control" id="{{ sentence.sentence_id }}" name="{{ sentence.sentence_id}}"> lalalala
-            </textarea>
-        </label>
-      </div>
-    </div>
+
 
 
 
@@ -96,6 +121,17 @@
 
       {% endfor %}
 
+      <div id="empty_form">
+          <div class="w3-container w3-center w3-padding-16">
+          <label class="form-check-label">
+            <textarea
+            class="form-control" id="lala"
+            name="lulu">
+                lalalala
+              </textarea>
+          </label>
+        </div>
+      </div>
 
       {% if theres_sentences %}
             <div class="w3-row-padding w3-padding-16 w3-container">
@@ -149,16 +185,62 @@
 
 </div>
 
-<script>
-    function mais_tiny(source) {
-        //window.alert(11);
-        console.log(source.id);
 
-    	button = document.getElementById(source.id);
-        var form_idx = $('#id_form-TOTAL_FORMS').val();
-        $(button).append($('#empty_form').html().replace(/__prefix__/g, form_idx));
-        $('#id_form-TOTAL_FORMS').val(parseInt(form_idx) + 1);
-    };
+
+
+<script type="text/javascript">
+	$(document ).ready(function() {
+		function applyMCE() {
+			tinyMCE.init({
+				mode : "textareas",
+				editor_selector : "tinymce-enabled-message",
+			});
+		}
+		function AddRemoveTinyMce(editorId) {
+			if(tinyMCE.get(editorId))
+			{
+				tinyMCE.EditorManager.execCommand('mceFocus', false, editorId);
+				tinyMCE.EditorManager.execCommand('mceRemoveEditor', true, editorId);
+
+			} else {
+				tinymce.EditorManager.execCommand('mceAddEditor', false, editorId);
+			}
+		}
+		applyMCE();
+		$('a.toggle-tinymce').die('click').live('click', function(e) {
+			AddRemoveTinyMce('description1');
+			var lbl = $(this).text() == 'Off' ? 'On' : 'Off';
+			$(this).text(lbl);
+		});
+		$('a.add-type').die('click').live('click', function(e) {
+			e.preventDefault();
+			var content = jQuery('#type-container .type-row'),
+			element = null;
+			for(var i = 0; i<1; i++){
+				element = content.clone();
+				var divId = 'id_'+jQuery.now();
+				element.attr('id', divId);
+				element.find('.remove-type').attr('targetDiv', divId);
+				element.find('.tinymce-enabled-message-new').attr('id', 'txt_'+divId);
+				element.appendTo('#type_container');
+				AddRemoveTinyMce('txt_'+divId);
+
+			}
+		});
+
+		jQuery(".remove-type").die('click').live('click', function (e) {
+			var didConfirm = confirm("Are you sure You want to delete");
+			if (didConfirm == true) {
+				var id = jQuery(this).attr('data-id');
+				var targetDiv = jQuery(this).attr('targetDiv');
+				jQuery('#' + targetDiv).remove();
+			// }
+			return true;
+			} else {
+				return false;
+			}
+		});
+	});
 </script>
 
 {% endblock %}

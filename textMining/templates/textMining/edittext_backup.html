@@ -1,0 +1,175 @@
+<script src="/static/tinymce/js/tinymce/tinymce.min.js"></script>
+<script>
+  tinymce.init({
+  //forced_root_block : false,
+  selector: "textarea",
+  width: '100%',
+  plugins: [
+  'advlist autolink lists link image charmap print preview anchor textcolor',
+  'searchreplace visualblocks code fullscreen',
+  'insertdatetime media table contextmenu paste code help'
+  ],
+  toolbar: 'insert | undo redo |  styleselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+  content_css: [
+  '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+  '//www.tinymce.com/css/codepen.min.css'
+  ],
+  apply_source_formatting:true,
+  entity_encoding:"named",
+  language:"pt_BR",
+  entities:'169,copy,8482,trade,ndash,8212,mdash,8216,lsquo,8217,rsquo,8220,ldquo,8221,rdquo,8364,euro'
+  });
+</script>
+
+
+
+
+
+
+
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="container">
+    <form action="{% url 'generateaiml' %}" method="post">
+
+      {% csrf_token %}
+
+      {% for info in final_sentences_info %}
+
+      <br>
+      <h3>Palavra-Chave: {{ info.keyword }}</h3>
+      <br>
+      <div class="form-group">
+
+
+	{% if info.sentences %}
+
+    <div id="{{ info.keyword }}">
+
+	{% for sentence in info.sentences %}
+
+	<div class="w3-container w3-center w3-padding-16">
+	  <label class="form-check-label">
+	    <textarea class="form-control" id="{{ sentence.sentence_id }}" name="{{ sentence.sentence_id}}"> {{ sentence.sentence }}
+        </textarea>
+	  </label>
+	</div>
+
+	{% endfor %}
+    </div>
+
+
+	{% else %}
+
+	<br>
+	<h5>Nenhuma frase selecionada para essa palavra-chave.</h5>
+	<br>
+
+	{% endif %}
+
+
+
+
+
+    <input type="button" value="Add" id="{{ info.keyword }}" onClick="mais_tiny(this)">
+
+
+
+
+
+
+
+      </div>
+      <hr>
+
+      {% endfor %}
+
+      <div id="empty_form">
+          <div class="w3-container w3-center w3-padding-16">
+          <label class="form-check-label">
+            <textarea
+            class="form-control" id="lala"
+            name="lulu">
+                lalalala
+              </textarea>
+          </label>
+        </div>
+      </div>
+
+      {% if theres_sentences %}
+            <div class="w3-row-padding w3-padding-16 w3-container">
+	<div class="w3-content">
+
+	  <div class="form-group">
+	    <label for="relatedKeywords">Palavras-Chave Relacionadas:</label>
+	    <input type="text" class="form-control" id="relatedKeywords" name="relatedKeywords" placeholder="Digite as palavras-chave relacionadas separadas por ;">
+	  </div>
+
+	  <div class="form-group">
+	    <label for="fileName">Nome do Arquivo:</label>
+	    <input type="text" class="form-control" id="fileName" name="fileName" placeholder="Entre com o nome do arquivo, caso seja nulo, vai ser aiml-DD-MM-YYYY-hh-mm-ss.xml, nao e necessario o .xml">
+	  </div>
+
+
+	  <br>
+	  <h4>Selecione:</h4>
+	  <br>
+
+	  <div class="form-check">
+	    <label class="form-check-label">
+	      <input class="form-check-input" type="radio" name="aimlOption" id="show" value="show">
+	      Visualizar AIML
+	    </label>
+	  </div>
+	  <div class="form-check">
+	    <label class="form-check-label">
+	      <input class="form-check-input" type="radio" name="aimlOption" id="save" value="save" checked>
+	      Salvar AIML
+	    </label>
+	  </div>
+
+	  <br>
+
+	  <input type="hidden" name="typeOfAIML" value="pre_defined" />
+	  <input type="submit" class="btn btn-primary" value="Download AIML" />
+
+	</div>
+      </div>
+	    {% else %}
+	    <br>
+	    <h3>Não há nenhuma frase a ser salva.</h3>
+	    <br>
+      {% endif %}
+
+
+    </form>
+
+  </div>
+
+</div>
+
+<script>
+    function mais_tiny(source) {
+        //window.alert(11);
+        console.log(source.id);
+
+    	button = document.getElementById(source.id);
+
+        var new_id = source.id + 1;
+        var my_str = "<textarea\
+    class=\"tinymce\" id=\"" + new_id +
+        "\" name=\"lulu\">\
+            lalalala\
+          </textarea>"
+        //var form_idx = $('#empty_form').val() + 1;
+        console.log(my_str);
+        $(button).append(my_str);
+        //$('#empty_form').val(parseInt(form_idx) + 1);
+
+        tinyMCE.execCommand('mceAddControl', true, new_id);
+    };
+    function textarea_to_tinymce(id){
+    if ( typeof( tinyMCE ) == "object" && typeof( tinyMCE.execCommand ) == "function" ) {
+        tinyMCE.execCommand('mceAddControl', false, "a1");
+    }
+};
+</script>

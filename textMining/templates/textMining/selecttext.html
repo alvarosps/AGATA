@@ -20,7 +20,7 @@
 			<b>Selecionar/Deselecionar Todos</b>
 
 			<br><br>
-			
+
 			<div class="form-check">
 
 			  {% if info.sentences %}
@@ -30,9 +30,9 @@
 
 			  <label class="form-check-label">
 			    <input type="checkbox" class="form-check-input" name="{{ info.keyword_id }}" id="{{ sentence.sentence_id }}" value="{{ sentence.sentence_id }}">
-			
+
 			    {{ sentence.sentence|safe }}
-			 
+
 			    <br><br>
 			  </label>
 
@@ -43,18 +43,18 @@
 			  <h5>Nenhuma frase encontrada com essa palavra-chave.</h5>
 			  <br>
 			  {% endif %}
-			  
+
 			</div>
 			<hr>
 			{% endfor %}
-			
+
 			<input type="submit" class="btn btn-primary" value="Enviar" />
 
 		</form>
-	
+
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	
+
 
 <script language="JavaScript">
 	function selectAll(source) {

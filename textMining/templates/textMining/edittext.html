@@ -49,14 +49,19 @@
 
 	{% if info.sentences %}
 
+    <div id="{{ info.keyword }}">
 
 	{% for sentence in info.sentences %}
+
 	<div class="w3-container w3-center w3-padding-16">
 	  <label class="form-check-label">
-	    <textarea class="form-control" id="{{ sentence.sentence_id }}" name="{{ sentence.sentence_id }}"> {{ sentence.sentence }}</textarea>
+	    <textarea class="form-control" id="{{ sentence.sentence_id }}" name="{{ sentence.sentence_id}}"> {{ sentence.sentence }}
+        </textarea>
 	  </label>
 	</div>
+
 	{% endfor %}
+    </div>
 
 
 	{% else %}
@@ -66,6 +71,25 @@
 	<br>
 
 	{% endif %}
+
+
+
+
+
+    <input type="button" value="Add" id="{{ info.keyword }}" onClick="mais_tiny(this)">
+
+    <div id="empty_form" style="display:none">
+        <div class="w3-container w3-center w3-padding-16">
+        <label class="form-check-label">
+          <textarea class="form-control" id="{{ sentence.sentence_id }}" name="{{ sentence.sentence_id}}"> lalalala
+            </textarea>
+        </label>
+      </div>
+    </div>
+
+
+
+
 
       </div>
       <hr>
@@ -125,5 +149,16 @@
 
 </div>
 
+<script>
+    function mais_tiny(source) {
+        //window.alert(11);
+        console.log(source.id);
+
+    	button = document.getElementById(source.id);
+        var form_idx = $('#id_form-TOTAL_FORMS').val();
+        $(button).append($('#empty_form').html().replace(/__prefix__/g, form_idx));
+        $('#id_form-TOTAL_FORMS').val(parseInt(form_idx) + 1);
+    };
+</script>
 
 {% endblock %}

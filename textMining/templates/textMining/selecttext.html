@@ -20,7 +20,7 @@
 			<b>Selecionar/Deselecionar Todos</b>
 
 			<br><br>
-			
+
 			<div class="form-check">
 
 			  {% if info.sentences %}
@@ -30,9 +30,9 @@
 
 			  <label class="form-check-label">
 			    <input type="checkbox" class="form-check-input" name="{{ info.keyword_id }}" id="{{ sentence.sentence_id }}" value="{{ sentence.sentence_id }}">
-			
+
 			    {{ sentence.sentence|safe }}
-			 
+
 			    <br><br>
 			  </label>
 
@@ -43,18 +43,37 @@
 			  <h5>Nenhuma frase encontrada com essa palavra-chave.</h5>
 			  <br>
 			  {% endif %}
-			  
+
 			</div>
+
+            <div class="form-group">
+                <label for="frases_em_branco_{{ info.keyword_id }}">Escolha quantas frases a mais:</label>
+                <select class="form-control" name="frases_em_branco_{{ info.keyword_id }}" id="frases_em_branco_{{ info.keyword_id }}">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+              </div>
+
+
 			<hr>
 			{% endfor %}
-			
+
+
 			<input type="submit" class="btn btn-primary" value="Enviar" />
 
 		</form>
-	
+
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	
+
 
 <script language="JavaScript">
 	function selectAll(source) {

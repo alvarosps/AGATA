@@ -79,17 +79,37 @@ def select_text(request):
 def edit_text(request):
 
     sentences_info = request.session["sentences_info"]
+
     keywords_sentences = [
         request.POST.getlist('keyword0')
     ]
 
+
+
+    # Pega a quantidade de frases em branco que o cara quer
+    blank_sentences_0 = int(request.POST.get('frases_em_branco_keyword0', "0"))
+
+    for blank in range(0,blank_sentences_0):
+        keywords_sentences[0].append('dummy_sentence')
+
+    #print("> . >>> >>> qtd frases em branco: " + blank_sentences_0)
+
     if request.session["blank_optional_keywords"]["keyword_2"] == False:
         keywords_sentences.append(request.POST.getlist('keyword1'))
+        blank_sentences_1 = int(request.POST.get('frases_em_branco_keyword1', "0"))
+        for blank in range(0, blank_sentences_1):
+            keywords_sentences[1].append('dummy_sentence')
     if request.session["blank_optional_keywords"]["keyword_3"] == False:
         keywords_sentences.append(request.POST.getlist('keyword2'))
+        blank_sentences_2 = int(request.POST.get('frases_em_branco_keyword1', "0"))
+        for blank in range(0,blank_sentences_2):
+            keywords_sentences[2].append('dummy_sentence')
 
     final_sentences_info = generate_final_sentences_info(sentences_info, keywords_sentences)
 
+    print("keyworkds sentences: >>")
+    print(keywords_sentences)
+    print("<<<")
     request.session["final_sentences_info"] = final_sentences_info
 
     #print (final_sentences_info)
@@ -99,6 +119,8 @@ def edit_text(request):
         #print (info["sentences"])
         if (info["sentences"] != []):
             theres_sentences = True
+
+
 
 
     return render(request, 'textMining/edittext.html', {'final_sentences_info' : final_sentences_info, 'theres_sentences' : theres_sentences})
@@ -208,6 +230,9 @@ def generate_sentences_info(sentences):
 
     sentences_info = list()
 
+    print("generation sentences info com sentences: >>>")
+    print(sentences)
+    print("<<<")
     '''
 
     sentences_info = [
@@ -301,15 +326,37 @@ def generate_final_sentences_info(sentences_info, keywords_sentences):
 
     return final_sentences_info
 
+
+last_id = 204
 def relate_keyword_datas(index, keyword_data, keywords_sentences):
     new_sentences_info = dict()
     new_sentences_info["keyword"] = keyword_data["keyword"]
     new_sentences_info["keyword_id"] = keyword_data["keyword_id"]
     new_sentences_info["sentences"] = list()
+    global last_id
+    print("keyword data >>")
+    print(keyword_data)
+    print("<<")
 
     for i in range(len(keyword_data["sentences"])):
+        print ("comparando")
+        print (keyword_data["sentences"][i]["sentence_id"])
+        print ("com")
+        print (keywords_sentences[index])
+
         if keyword_data["sentences"][i]["sentence_id"] in keywords_sentences[index]:
             new_sentences_info["sentences"].append(keyword_data["sentences"][i])
+
+    print (keywords_sentences[index].count("dummy_sentence"))
+
+
+    for i in range (0, keywords_sentences[index].count("dummy_sentence")):
+        dummy_sentence_aux = {
+            "sentence_id": str(last_id),
+            "sentence": ""
+        }
+        new_sentences_info["sentences"].append(dummy_sentence_aux)
+        last_id = last_id + 1
 
     return new_sentences_info
 
@@ -318,6 +365,8 @@ def get_final_sentences_ids(final_sentences_info):
     for i in range(len(final_sentences_info)):
         for j in range(len(final_sentences_info[i]["sentences"])):
             sentences_id.append(final_sentences_info[i]["sentences"][j]["sentence_id"])
+    print("sentences ids: >>")
+    print(sentences_id)
 
     return sentences_id
 

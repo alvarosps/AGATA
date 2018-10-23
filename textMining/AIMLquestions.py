@@ -97,13 +97,13 @@ class AIMLquestions(AIMLanswers):
                 new_pre_defined_phrases.append(self.pre_defined_phrases[i].replace("#", keyword))
         return new_pre_defined_phrases
 
-    def create_aiml(self):
+    def create_aiml(self, with_media):
         print("to no aiml questions criando o aiml")
         print(self._structure["keywords"])
         #Begin the AIML, and Comment
         self.begin_aiml()
         #Root Question with one or many answers
-        self.create_aiml_question()
+        self.create_aiml_question(with_media)
         #Questions SRAI
         self.create_aiml_questions()
         print(self._structure["keywords"])

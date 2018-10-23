@@ -124,6 +124,15 @@ def generate_aiml(request):
 
     user_file_name = request.POST["fileName"]
 
+    with_media_ = request.POST.get('with_media', "without")
+
+    if (with_media_ == "with"):
+        with_media = True
+    else:
+        with_media = False
+
+    #print("valor do with media: " + with_media)
+
     user_file_name = remover_acentos(user_file_name)
 
     final_info = {
@@ -132,12 +141,12 @@ def generate_aiml(request):
         "extra" : relatedKeywords
     }
 
-    
+
     AIMLGenerator = AIMLquestions(final_info, typeOfAIML)
 
     print("to no view mandando criar o aiml")
     print(final_info["extra"])
-    aiml = AIMLGenerator.create_aiml()
+    aiml = AIMLGenerator.create_aiml(with_media)
     aimlTree = AIMLGenerator.save_aiml(aiml)
 
     if user_file_name != "":

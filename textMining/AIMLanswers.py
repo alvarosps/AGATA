@@ -2,6 +2,7 @@
 
 from textMining.AIMLgenerator import AIMLgenerator
 from xml.etree.ElementTree import Element, SubElement, Comment, tostring
+import re
 
 class AIMLanswers(AIMLgenerator):
 
@@ -21,7 +22,7 @@ class AIMLanswers(AIMLgenerator):
     def get_answers(self):
         return self._structure["sentences"]
 
-    def create_aiml_question(self):
+    def create_aiml_question(self, with_media):
         category = SubElement(self.aiml, "category")
 
         pattern = SubElement(category, "pattern")
@@ -35,6 +36,10 @@ class AIMLanswers(AIMLgenerator):
             for i in range(len(self.answers)):
                 if self.answers[i] != "":
                     li = SubElement(random, "li")
-                    li.text = self.answers[i]
+                    if (with_media):
+                        self.answers[i] = re.sub('<a.*</a>', '', self.answers[i])
+                        li.text = re.sub('<[^<].*?>', '', self.answers[i])
+                    else:
+                        li.text = self.answers[i]
         elif len(self.answers) == 1:
             template.text = self.answers[0]

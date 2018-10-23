@@ -23,6 +23,7 @@ class AIMLanswers(AIMLgenerator):
         return self._structure["sentences"]
 
     def create_aiml_question(self, with_media):
+        print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TO NO CRATE AIML QUESTION")
         category = SubElement(self.aiml, "category")
 
         pattern = SubElement(category, "pattern")
@@ -39,7 +40,15 @@ class AIMLanswers(AIMLgenerator):
                     if (with_media):
                         self.answers[i] = re.sub('<a.*</a>', '', self.answers[i])
                         li.text = re.sub('<[^<].*?>', '', self.answers[i])
+                        print("WITH MEDIA")
                     else:
                         li.text = self.answers[i]
+                        print("WITHOUT MEDIA")
         elif len(self.answers) == 1:
-            template.text = self.answers[0]
+            if (with_media):
+                self.answers[0] = re.sub('<a.*</a>', '', self.answers[0])
+                template.text = re.sub('<[^<].*?>', '', self.answers[0])
+                print("WITH MEDIA")
+            else:
+                template.text = self.answers[0]
+            #template.text = self.answers[0]

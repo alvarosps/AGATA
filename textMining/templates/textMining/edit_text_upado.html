@@ -39,41 +39,37 @@
 
       {% csrf_token %}
 
-      {% for info in final_sentences_info %}
+      {% if theres_sentences %}
 
       <br>
-      <h3>Palavra-Chave: {{ info.keyword }}</h3>
+      <h3>Edição das frases carregadas do arquivo:</h3>
       <br>
       <div class="form-group">
 
 
-	{% if info.sentences %}
 
 
-	{% for sentence in info.sentences %}
+
+	{% for sentence in sentences %}
 	<div class="w3-container w3-center w3-padding-16">
 	  <label class="form-check-label">
-	    <textarea class="form-control" id="{{ sentence.sentence_id }}" name="{{ sentence.sentence_id }}"> {{ sentence.sentence }}</textarea>
+	    <textarea class="form-control" id="{{ sentence.sentence_id }}" name="{{ sentence.sentence_id }}"> {{ sentence }}</textarea>
 	  </label>
 	</div>
 	{% endfor %}
 
 
-	{% else %}
 
-	<br>
-	<h5>JDSAIOJSDIOSJADIOJDSAOIJSADIJDISOANenhuma frase selecionada para essa palavra-chave.</h5>
-	<br>
 
-	{% endif %}
+
+
 
       </div>
       <hr>
 
-      {% endfor %}
 
 
-      {% if theres_sentences %}
+
             <div class="w3-row-padding w3-padding-16 w3-container">
 	<div class="w3-content">
 
@@ -120,7 +116,7 @@
       </div>
 	    {% else %}
 	    <br>
-	    <h3>Não há nenhuma frase a ser salva.</h3>
+	    <h3>Não há nenhuma frase a ser exibida.</h3>
 	    <br>
       {% endif %}
 

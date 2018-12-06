@@ -94,13 +94,19 @@ def edit_text_upado(request):
     tree = ET.parse(file_path)
     root = tree.getroot()
 
+    sentences = []
+
     for random in root.iter('li'):
-        print (random.text)
+        #print (random.text)
+        sentences.append(random.text)
 
-    final_sentences_info = []
-    theres_sentences = False
+    print(sentences)
 
-    return render(request, 'textMining/edit_text_upado.html', {'final_sentences_info' : final_sentences_info, 'theres_sentences' : theres_sentences})
+    if(len(sentences) > 0):
+        theres_sentences = True
+    else:
+        theres_sentences = False
+    return render(request, 'textMining/edit_text_upado.html', {'sentences' : sentences, 'theres_sentences' : theres_sentences})
 
 def edit_text(request):
     print("LALALALALALAL do edit text")

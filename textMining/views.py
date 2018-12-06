@@ -16,6 +16,7 @@ from textMining.TextMining import TextMining
 import time
 import os
 import json
+import xml.etree.ElementTree as ET
 from textMining.AIMLquestions import AIMLquestions
 import re
 from unicodedata import normalize
@@ -30,6 +31,9 @@ def aiml(request):
     forms = FormKeywords()
 
     return render(request, 'textMining/aiml.html', {'form': forms})
+
+def upload_aiml(request):
+    return render(request, 'textMining/upload_aiml.html')
 
 def remover_acentos(txt):
     return normalize('NFKD', txt).encode('ASCII', 'ignore').decode('ASCII')
@@ -76,8 +80,30 @@ def select_text(request):
 
     return render(request, 'textMining/selecttext.html', {'sentences_info': sentences_info})
 
-def edit_text(request):
+def edit_text_upado(request):
 
+    book_file = request.FILES['book']
+    fs = FileSystemStorage()
+    file_name = fs.save(book_file.name, book_file)
+    uploaded_file_url = fs.url(file_name)
+    print(uploaded_file_url)
+    print("LALALALALALAL")
+    file_path = get_file_path(uploaded_file_url, 'upload')
+    print(file_path)
+
+    tree = ET.parse(file_path)
+    root = tree.getroot()
+
+    for random in root.iter('li'):
+        print (random.text)
+
+    final_sentences_info = []
+    theres_sentences = False
+
+    return render(request, 'textMining/edit_text_upado.html', {'final_sentences_info' : final_sentences_info, 'theres_sentences' : theres_sentences})
+
+def edit_text(request):
+    print("LALALALALALAL do edit text")
     sentences_info = request.session["sentences_info"]
 
     keywords_sentences = [
@@ -334,20 +360,20 @@ def relate_keyword_datas(index, keyword_data, keywords_sentences):
     new_sentences_info["keyword_id"] = keyword_data["keyword_id"]
     new_sentences_info["sentences"] = list()
     global last_id
-    print("keyword data >>")
-    print(keyword_data)
-    print("<<")
+    #print("keyword data >>")
+    #print(keyword_data)
+    #print("<<")
 
     for i in range(len(keyword_data["sentences"])):
-        print ("comparando")
-        print (keyword_data["sentences"][i]["sentence_id"])
-        print ("com")
-        print (keywords_sentences[index])
+        #print ("comparando")
+        #print (keyword_data["sentences"][i]["sentence_id"])
+        #print ("com")
+        #print (keywords_sentences[index])
 
         if keyword_data["sentences"][i]["sentence_id"] in keywords_sentences[index]:
             new_sentences_info["sentences"].append(keyword_data["sentences"][i])
 
-    print (keywords_sentences[index].count("dummy_sentence"))
+    #print (keywords_sentences[index].count("dummy_sentence"))
 
 
     for i in range (0, keywords_sentences[index].count("dummy_sentence")):
@@ -365,8 +391,8 @@ def get_final_sentences_ids(final_sentences_info):
     for i in range(len(final_sentences_info)):
         for j in range(len(final_sentences_info[i]["sentences"])):
             sentences_id.append(final_sentences_info[i]["sentences"][j]["sentence_id"])
-    print("sentences ids: >>")
-    print(sentences_id)
+    #print("sentences ids: >>")
+    #print(sentences_id)
 
     return sentences_id
 

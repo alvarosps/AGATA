@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<script src="/static/tinymce/js/tinymce/tinymce.min.js"></script>
+<script>
+  tinymce.init({
+  //forced_root_block : false,
+  selector: "textarea",
+  width: '100%',
+  plugins: [
+  'advlist autolink lists link image charmap print preview anchor textcolor',
+  'searchreplace visualblocks code fullscreen',
+  'insertdatetime media table contextmenu paste code help'
+  ],
+  toolbar: 'insert | undo redo |  styleselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+  content_css: [
+  '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+  '//www.tinymce.com/css/codepen.min.css'
+  ],
+  apply_source_formatting:true,
+  entity_encoding:"named",
+  language:"pt_BR",
+  entities:'169,copy,8482,trade,ndash,8212,mdash,8216,lsquo,8217,rsquo,8220,ldquo,8221,rdquo,8364,euro'
+  });
+</script>
+
+
+
+
+
+
+
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="container">
+    <form action="{% url 'generateaiml' %}" method="post">
+
+      {% csrf_token %}
+
+      {% for info in final_sentences_info %}
+
+      <br>
+      <h3>Palavra-Chave: {{ info.keyword }}</h3>
+      <br>
+      <div class="form-group">
+
+
+	{% if info.sentences %}
+
+
+	{% for sentence in info.sentences %}
+	<div class="w3-container w3-center w3-padding-16">
+	  <label class="form-check-label">
+	    <textarea class="form-control" id="{{ sentence.sentence_id }}" name="{{ sentence.sentence_id }}"> {{ sentence.sentence }}</textarea>
+	  </label>
+	</div>
+	{% endfor %}
+
+
+	{% else %}
+
+	<br>
+	<h5>JDSAIOJSDIOSJADIOJDSAOIJSADIJDISOANenhuma frase selecionada para essa palavra-chave.</h5>
+	<br>
+
+	{% endif %}
+
+      </div>
+      <hr>
+
+      {% endfor %}
+
+
+      {% if theres_sentences %}
+            <div class="w3-row-padding w3-padding-16 w3-container">
+	<div class="w3-content">
+
+	  <div class="form-group">
+	    <label for="relatedKeywords">Palavras-chave relacionadas:</label>
+	    <input type="text" class="form-control" id="relatedKeywords" name="relatedKeywords" placeholder="Digite as palavras-chave relacionadas separadas por ;">
+	  </div>
+
+	  <div class="form-group">
+	    <label for="fileName">Nome do arquivo:</label>
+	    <input type="text" class="form-control" id="fileName" name="fileName" placeholder="Entre com o nome do arquivo, caso seja nulo, vai ser aiml-DD-MM-YYYY-hh-mm-ss.xml, nao e necessario o .xml">
+	  </div>
+
+      <div class="form-check">
+	    <label class="form-check-label">
+	      <input class="form-check-input" type="checkbox" name="with_media" id="with_media" value="with">
+	      Salvar sem mídias (somente o texto, ideal para mundos virtuais)
+	    </label>
+	  </div>
+
+	  <br>
+	  <h4>Selecione:</h4>
+	  <br>
+
+	  <div class="form-check">
+	    <label class="form-check-label">
+	      <input class="form-check-input" type="radio" name="aimlOption" id="show" value="show">
+	      Visualizar AIMLadsfasdfasdfasd
+	    </label>
+	  </div>
+	  <div class="form-check">
+	    <label class="form-check-label">
+	      <input class="form-check-input" type="radio" name="aimlOption" id="save" value="save" checked>
+	      Salvar AIML
+	    </label>
+	  </div>
+
+	  <br>
+
+	  <input type="hidden" name="typeOfAIML" value="pre_defined" />
+	  <input type="submit" class="btn btn-primary" value="Download AIML" />
+
+	</div>
+      </div>
+	    {% else %}
+	    <br>
+	    <h3>Não há nenhuma frase a ser salva.</h3>
+	    <br>
+      {% endif %}
+
+
+    </form>
+
+  </div>
+
+</div>
+
+
+{% endblock %}

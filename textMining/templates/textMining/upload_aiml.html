@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% load bootstrap %}
+
+
+{% block header %}
+
+<header class="w3-container w3-green w3-center w3-padding-16">
+</header>
+
+<header class="w3-container w3-green w3-center w3-padding-32">
+  <h1 class="w3-margin w3-jumbo">AGATA</h1>
+</header>
+
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+
+    <h1>Upar AIML</h1>
+
+
+
+      <li><h5>Forneça um arquivo: *</h5></li>
+
+      <h6 class="w3-padding-16"><i>O sistema exige um arquivo AIML.</i></h6>
+
+
+      <!--Livro-Texto (formato .txt): * -->
+
+      <form action="{% url 'edit_text_upado' %}" method="post"  enctype="multipart/form-data">
+        {% csrf_token %}
+      <div class="form-group">
+
+        <label id="id_label" class="control-label" for="id_book" style=
+                            "width : 90px;
+							  border-radius: 3px;
+							  padding: 8px;
+							  font-size: 14px;
+							  text-align: center;
+							  color: #FFF;
+							  cursor: pointer;
+							  background-color: #090;
+							  "> Procurar... </label>
+
+          <p id="demo">Nenhum arquivo selecionado</p>
+          <p id="msg_verifica"></p>
+      </div>
+
+
+        <input name="book" id="id_book" required="" type="file" style="display: none">
+
+
+
+
+
+
+      <small id="required" class="form-text text-muted">* Campo obrigatorio.</small>
+
+      <input type="submit" class="btn btn-primary" value="Enviar" onClick="verifica_campos()" />
+  </form>
+
+  </div>
+</div>
+
+<script>
+ $('#id_book').change(function()
+     {
+         var fullpath = document.getElementById("id_book").value;
+         var backslash=fullpath.lastIndexOf("\\");
+         var filename = fullpath.substr(backslash+1);
+
+         document.getElementById("demo").innerHTML = "Arquivo selecionado: " + filename;
+     });
+</script>
+
+<script>
+ function verifica_campos() {
+     var book = document.getElementById("id_book");
+     if(book.value.length <= 0) {
+         alert('Nenhum arquivo selecionado!');
+         //document.getElementById("id_label").focus();
+         return false;
+     }
+ }
+</script>
+
+{% endblock %}

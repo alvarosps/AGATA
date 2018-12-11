@@ -16,7 +16,7 @@ from textMining.TextMining import TextMining
 import time
 import os
 import json
-import xml.etree.ElementTree as ET
+import lxml.etree as ET
 from textMining.AIMLquestions import AIMLquestions
 import re
 from unicodedata import normalize
@@ -90,15 +90,17 @@ def edit_text_upado(request):
     print("LALALALALALAL")
     file_path = get_file_path(uploaded_file_url, 'upload')
     print(file_path)
+    aiml_file_name = file_path
 
     tree = ET.parse(file_path)
     root = tree.getroot()
 
     sentences = []
-
+    i = 0
     for random in root.iter('li'):
         #print (random.text)
-        sentences.append(random.text)
+        sentences.append({"sentence_id" : i, "sentence": random.text})
+        i = i+1
 
     print(sentences)
 
@@ -106,7 +108,10 @@ def edit_text_upado(request):
         theres_sentences = True
     else:
         theres_sentences = False
-    return render(request, 'textMining/edit_text_upado.html', {'sentences' : sentences, 'theres_sentences' : theres_sentences})
+
+    request.session["sentences"] = sentences
+
+    return render(request, 'textMining/edit_text_upado.html', {'sentences' : sentences, 'theres_sentences' : theres_sentences, 'aiml_file_name': aiml_file_name})
 
 def edit_text(request):
     print("LALALALALALAL do edit text")
@@ -156,6 +161,88 @@ def edit_text(request):
 
 
     return render(request, 'textMining/edittext.html', {'final_sentences_info' : final_sentences_info, 'theres_sentences' : theres_sentences})
+
+def change_aiml(request):
+    sentences = request.session["sentences"]
+
+    print("vai alterar o aiml")
+
+    print(request.session["sentences"])
+
+    print("<<<<<<<<<")
+
+    typeOfAIML = request.POST["typeOfAIML"]
+
+    user_file_name = request.POST["fileName"]
+
+    with_media_ = request.POST.get('with_media', "without")
+
+    aiml_file_name = request.POST["aiml_file_name"]
+
+    print(aiml_file_name)
+
+    if (with_media_ == "with"):
+        with_media = True
+    else:
+        with_media = False
+
+
+    tree = ET.parse(aiml_file_name)
+    root = tree.getroot()
+
+
+    i = 0
+    for random in root.iter('li'):
+        print ("\n\n\no do arquivo:\n" + random.text)
+        print ("\n\n\nda lista:\n")
+        print(request.POST[str(i)])
+        if (with_media):
+            tmp = re.sub('<a.*</a>', '', request.POST[str(i)])
+            random.text = re.sub('<[^<].*?>', '', tmp)
+            #random.text = request.POST[str(i)]
+        i = i + 1
+
+
+    #print(sentences)
+
+    #return response
+
+    aimlTree = tree
+
+    if user_file_name != "":
+        if user_file_name.endswith(".xml"):
+            download_file_name = user_file_name
+        else:
+            download_file_name = user_file_name + ".xml"
+    else:
+        download_file_name = 'aiml-' + time.strftime("%d-%m-%Y-%H-%M-%S") + '.xml'
+
+    download_file_path = get_file_path(download_file_name, "xml")
+    aimlTree.write(download_file_path, encoding="utf-8", xml_declaration=True)
+
+    with open(download_file_path, 'r', encoding='utf-8') as xml:
+        aiml_str = xml.read()
+
+    #needs to pretty print
+    bs = BeautifulSoup(open(download_file_path, 'r', encoding='utf-8'), 'xml')
+    aiml_str = bs.prettify(encoding='utf-8')
+
+    aiml = aiml_str.decode('utf-8')
+    text_re = re.compile('>\n\s+([^<>\s].*?)\n\s+</', re.DOTALL)
+    pretty_aiml = text_re.sub('>\g<1></', aiml)
+
+    with open(download_file_path, 'w', encoding='utf-8') as f:
+        f.write(pretty_aiml)
+
+    with open(download_file_path, 'rb') as fh:
+        response = HttpResponse(fh.read(), content_type="application/xml")
+        if request.POST['aimlOption'] == 'save':
+            response['Content-Disposition'] = 'attachment; filename=' + os.path.basename(download_file_path)
+        if request.POST['aimlOption'] == 'show':
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(download_file_path)
+
+    #return render(request, 'textMining/generateaiml.html', {'aiml_str' : aiml_str.decode('utf-8'), 'download_file_path' : download_file_path})
+    return response
 
 def generate_aiml(request):
     final_sentences_info = request.session["final_sentences_info"]

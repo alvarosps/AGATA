@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^edittext', views.edit_text, name = 'edittext'),
     url(r'^edit-text-upado', views.edit_text_upado, name = 'edit_text_upado'),
     url(r'^generateaiml', views.generate_aiml, name = 'generateaiml'),
+    url(r'^change-aiml', views.change_aiml, name = 'change-aiml'),
     url('^sobre', views.about, name='sobre'),
     url('^tutorial', views.tutorial, name='tutorial'),
 ]

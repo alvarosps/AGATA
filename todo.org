@@ -2,17 +2,17 @@
 
 a) Incluir o drop-down menu com a opção de adicionar mais caixas TinyMCE, " Inserir mais frases manualmente: ".
 
-b) renomear a página UPAR AIML para Editar AIML
+XXX b) renomear a página UPAR AIML para Editar AIML
 Inserir uma descrição nesta página: "Edite um arquivo AIML para adicionar conteúdos, recursos multimídia, ou corrigir erros."
 
-c) renomear a página AIML para Gerar AIML
+XXX c) renomear a página AIML para Gerar AIML
 Inserir uma descrição nesta página: "Faça uma busca por palavras-chaves em um arquivo de texto (corpus), selecione as sentenças que contêm as palavras-chaves, edite as frases selecionadas e grave tudo em um arquivo AIML pré-configurado."
 
-d) Onde diz "Digite as palavras-chave:" trocar por "Digite as palavras-chaves (termos simples ou compostos):"
+XXX d) Onde diz "Digite as palavras-chave:" trocar por "Digite as palavras-chaves (termos simples ou compostos):"
 
-e) Onde diz "Forneça um arquivo: *" trocar por "Forneça um arquivo (.txt): "
+XXX e) Onde diz "Forneça um arquivo: *" trocar por "Forneça um arquivo (.txt): "
 
-f)  Onde diz "Palavra-chave 1: *" trocar por "Palavra-chave 1 (obrigatória):
+XXX f)  Onde diz "Palavra-chave 1: *" trocar por "Palavra-chave 1 (obrigatória):
                                                                                  Atenção, esta palavra-chave será a raiz da categoria AIML, mesmo que ela não seja localizada no corpus. Você pode substituir por uma frase caso queira mudar a orientação da construção do arquivo. Ou seja, por exemplo, você pode escrever "exemplos de ferramentas de edição de vídeo", caso o arquivo AIML esteja destinado a dar exemplos práticos e não conceitos."
 
 Além disso, outra melhoria importante seria disponibilizar em inglês o sistema, por meio de um botãozinho daqueles que automaticamente traduz tudo (exemplo http://www.ufrgs.br/ppgie). Porém, teríamos que modificar as frases pré-configuradas que acompanham o arquivo pra essas abaixo. Sei que talvez seja difícil, mas dá uma pesquisada, tu é fera. Brigadão.

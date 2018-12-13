@@ -1,30 +1,18 @@
 * TODO
 
-** DONE Explicação palavras-chave tela inicial
+a) Incluir o drop-down menu com a opção de adicionar mais caixas TinyMCE, " Inserir mais frases manualmente: ".
 
-Pra facilitar, fizemos com que o sistema deva ser usado com termos semelhantes.
+b) renomear a página UPAR AIML para Editar AIML
+Inserir uma descrição nesta página: "Edite um arquivo AIML para adicionar conteúdos, recursos multimídia, ou corrigir erros."
 
-Exemplo, ao buscar aprendizagem, buscar aprendizado e aprendizagens.
+c) renomear a página AIML para Gerar AIML
+Inserir uma descrição nesta página: "Faça uma busca por palavras-chaves em um arquivo de texto (corpus), selecione as sentenças que contêm as palavras-chaves, edite as frases selecionadas e grave tudo em um arquivo AIML pré-configurado."
 
-Ou seja, não buscar aprendizagem e audiodescrição, pois virão coisas distintas.
+d) Onde diz "Digite as palavras-chave:" trocar por "Digite as palavras-chaves (termos simples ou compostos):"
 
-Vindo termos semelhantes, todos irão direcionar para a raiz, que vai conter todas as respostas.
+e) Onde diz "Forneça um arquivo: *" trocar por "Forneça um arquivo (.txt): "
 
-Por que não incluir as palavras chaves todas no final?
+f)  Onde diz "Palavra-chave 1: *" trocar por "Palavra-chave 1 (obrigatória):
+                                                                                 Atenção, esta palavra-chave será a raiz da categoria AIML, mesmo que ela não seja localizada no corpus. Você pode substituir por uma frase caso queira mudar a orientação da construção do arquivo. Ou seja, por exemplo, você pode escrever "exemplos de ferramentas de edição de vídeo", caso o arquivo AIML esteja destinado a dar exemplos práticos e não conceitos."
 
-Pois é preciso buscar no texto e selecionar, as de aprendizagem e as de aprendizado. E ao final, posso querer incluir aprendiz, que sei que não consta no texto ou não quis procurar, mas que tem relação.
-
-Acredito que uma explicação sobre isso na tela inicial é bem-vinda.
-
-** DONE Palavra-Chave c minusculo inserir dois pontos
-** DONE ingles -> pt
-
-** DONE gerar patterns pras palavras-chave que o usuario insere no final
-   CLOSED: [2018-05-28 Seg 16:41]
-
-
-***** Colocar em Português o TinyMCE
-* Criar um botão para gerar o arquivo AIML sem os recursos multimídia (só frases).
-* Criar um botão para inserir mais caixas TinyMCE, em que o usuário possa inserir e editar mais frases manualmente.
-***** Nome do Arquivo trocar por Nome do arquivo:
-***** Palavras-Chave Relacionadas trocar por Palavras-chave relacionadas:
+Além disso, outra melhoria importante seria disponibilizar em inglês o sistema, por meio de um botãozinho daqueles que automaticamente traduz tudo (exemplo http://www.ufrgs.br/ppgie). Porém, teríamos que modificar as frases pré-configuradas que acompanham o arquivo pra essas abaixo. Sei que talvez seja difícil, mas dá uma pesquisada, tu é fera. Brigadão.
